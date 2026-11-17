@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#087653">
+  <title>Laporan Laba Rugi | UMKM BOOK</title>
+
+  <link rel="stylesheet" href="src/dashboard.css">
+  <link rel="stylesheet" href="src/laporan.css">
+  
+</head>
+
+<body>
+
+  <main class="profit-page" id="reportContent">
+
+    <!-- HEADER -->
+    <header class="profit-header no-print">
+      <div>
+        <a href="dashboard.html" class="profit-back">
+          ← Kembali ke Dashboard
+        </a>
+
+        <h1>Laporan Laba Rugi</h1>
+        <p>
+          Ringkasan pendapatan, harga pokok penjualan,
+          dan beban usaha berdasarkan transaksi yang tercatat.
+        </p>
+      </div>
+
+      <div class="profit-header-actions">
+        <button type="button" id="refreshReport" class="profit-btn secondary">
+          ↻ Perbarui
+        </button>
+
+        <button type="button" id="printReport" class="profit-btn secondary">
+          Cetak Laporan
+        </button>
+
+        <button type="button" id="downloadPdf" class="profit-btn primary">
+          ↓ Unduh PDF
+        </button>
+      </div>
+    </header>
+
+
+    <!-- FILTER PERIODE -->
+    <section class="profit-filter no-print">
+
+      <div class="profit-filter-title">
+        <h2>Periode Laporan</h2>
+        <p>Pilih periode untuk melihat hasil laporan.</p>
+      </div>
+
+      <div class="profit-filter-controls">
+
+        <select id="periodFilter">
+          <option value="today">Hari Ini</option>
+          <option value="week">Minggu Ini</option>
+          <option value="month" selected>Bulan Ini</option>
+          <option value="year">Tahun Ini</option>
+          <option value="all">Semua Periode</option>
+          <option value="custom">Periode Khusus</option>
+        </select>
+
+        <div id="customDateFilter" class="custom-date-filter" hidden>
+          <input type="date" id="startDate">
+          <span>sampai</span>
+          <input type="date" id="endDate">
+
+          <button type="button" id="applyDateFilter" class="profit-btn primary">
+            Terapkan
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- RINGKASAN -->
+    <section class="profit-summary">
+
+      <article class="profit-summary-card income">
+        <span>Total Pendapatan</span>
+        <h3 id="totalIncome">Rp0</h3>
+        <small>Seluruh transaksi pemasukan</small>
+      </article>
+
+      <article class="profit-summary-card expense">
+        <span>Total Pengeluaran</span>
+        <h3 id="totalExpense">Rp0</h3>
+        <small>Seluruh transaksi pengeluaran</small>
+      </article>
+
+      <article class="profit-summary-card result">
+        <span>Laba / Rugi Bersih</span>
+        <h3 id="netProfit">Rp0</h3>
+        <small id="profitStatus">Hasil usaha periode ini</small>
+      </article>
+
+    </section>
+
+    <!-- RINCIAN LABA RUGI -->
+    <section class="profit-report-card">
+
+      <div class="profit-section-heading">
+        <div>
+          <h2>Rincian Laporan Laba Rugi</h2>
+          <p id="reportPeriodLabel">Periode laporan</p>
+        </div>
+      </div>
+
+      <div class="profit-table-wrapper">
+
+
+<table class="profit-table">
+  <thead>
+    <tr>
+      <th>Keterangan</th>
+      <th>Nominal</th>
+    </tr>
+  </thead>
+
+  <!-- A. PENDAPATAN -->
+  <tbody>
+    <tr class="profit-table-separator">
+      <td colspan="2">A. PENDAPATAN</td>
+    </tr>
+    <tr>
+      <td>Pendapatan Penjualan</td>
+      <td id="grossSales">Rp0</td>
+    </tr>
+    <tr class="subtotal-row">
+      <td><strong>Total Pendapatan</strong></td>
+      <td id="reportTotalIncome"><strong>Rp0</strong></td>
+    </tr>
+  </tbody>
+
+  <!-- B. HARGA POKOK PENJUALAN -->
+  <tbody>
+    <tr class="profit-table-separator">
+      <td colspan="2">B. HARGA POKOK PENJUALAN</td>
+    </tr>
+    <tr>
+      <td>Persediaan Awal</td>
+      <td id="openingInventoryValue">Rp0</td>
+    </tr>
+    <tr>
+      <td>Pembelian Barang Dagang</td>
+      <td id="grossPurchases">Rp0</td>
+    </tr>
+    <tr>
+      <td>Barang Tersedia untuk Dijual</td>
+      <td id="goodsAvailable">Rp0</td>
+    </tr>
+    <tr>
+      <td>Persediaan Akhir</td>
+      <td id="closingInventoryValue">Rp0</td>
+    </tr>
+    <tr class="subtotal-row">
+      <td><strong>Total Harga Pokok Penjualan (HPP)</strong></td>
+      <td id="costOfGoodsSold"><strong>Rp0</strong></td>
+    </tr>
+  </tbody>
+
+  <!-- C. LABA KOTOR -->
+  <tbody>
+    <tr class="net-profit-row">
+      <td><strong>C. LABA KOTOR</strong></td>
+      <td id="grossProfit"><strong>Rp0</strong></td>
+    </tr>
+  </tbody>
+
+  <!-- D. BEBAN OPERASIONAL -->
+  <tbody>
+    <tr class="profit-table-separator">
+      <td colspan="2">D. BEBAN OPERASIONAL</td>
+    </tr>
+  </tbody>
+
+  <tbody id="operatingExpenseDetails">
+    <tr>
+      <td colspan="2" class="empty-row">
+        Belum ada beban operasional.
+      </td>
+    </tr>
+  </tbody>
+
+  <tbody>
+    <tr class="subtotal-row">
+      <td><strong>Total Beban Operasional</strong></td>
+      <td id="totalOperatingExpenses"><strong>Rp0</strong></td>
+    </tr>
+  </tbody>
+
+  <!-- E. LABA / RUGI BERSIH -->
+  <tbody>
+    <tr class="net-profit-row">
+      <td><strong>E. LABA / RUGI BERSIH</strong></td>
+      <td id="finalNetProfit"><strong>Belum tersedia</strong></td>
+    </tr>
+  </tbody>
+</table>
+      </div>
+    </section>
+
+
+    <!-- RIWAYAT TRANSAKSI -->
+    <section class="profit-report-card">
+
+      <div class="profit-section-heading">
+        <div>
+          <h2>Riwayat Transaksi Periode Ini</h2>
+          <p>Rincian transaksi yang membentuk laporan.</p>
+        </div>
+      </div>
+
+      <div class="profit-table-wrapper">
+
+        <table class="profit-table transaction-table">
+
+          <thead>
+            <tr>
+              <th>Tanggal</th>
+              <th>Keterangan</th>
+              <th>Kategori</th>
+              <th>Jenis</th>
+              <th>Nominal</th>
+            </tr>
+          </thead>
+
+          <tbody id="transactionHistory">
+
+            <tr>
+              <td colspan="5" class="empty-row">
+                Belum ada transaksi.
+              </td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </section>
+
+
+    <!-- PENGATURAN KATEGORI -->
+    <section class="profit-report-card category-settings no-print">
+
+      <div class="profit-section-heading">
+        <div>
+          <h2>Pengaturan Kategori Laporan</h2>
+          <p>
+            Tentukan pengelompokan kategori untuk
+            perhitungan laba rugi.
+          </p>
+        </div>
+      </div>
+
+      <div class="category-form">
+
+        <div class="inventory-field">
+          <label for="categoryTransactionType">
+            Jenis Transaksi
+          </label>
+
+          <select id="categoryTransactionType">
+            <option value="pemasukan">Pemasukan</option>
+            <option value="pengeluaran">Pengeluaran</option>
+          </select>
+        </div>
+
+
+        <div class="inventory-field">
+          <label for="categoryName">
+            Kategori Transaksi
+          </label>
+
+          <select id="categoryName">
+            <option value="">Pilih kategori transaksi</option>
+          </select>
+        </div>
+
+
+        <div class="inventory-field">
+          <label for="reportClass">
+            Kelompok Laporan
+          </label>
+
+          <select id="reportClass">
+
+            <option value="">Pilih kelompok laporan</option>
+
+            <option value="penjualan">Penjualan</option>
+
+            <option value="pendapatan_lain">
+              Pendapatan Lain
+            </option>
+
+            <option value="pembelian_barang">
+              Pembelian Barang Dagang
+            </option>
+
+            <option value="beban_operasional">
+              Beban Operasional
+            </option>
+
+            <option value="retur_penjualan">
+              Retur Penjualan
+            </option>
+
+            <option value="potongan_penjualan">
+              Potongan Penjualan
+            </option>
+
+            <option value="retur_pembelian">
+              Retur Pembelian
+            </option>
+
+            <option value="potongan_pembelian">
+              Potongan Pembelian
+            </option>
+
+          </select>
+        </div>
+
+
+        <button
+          type="button"
+          id="saveCategoryRule"
+          class="profit-btn primary"
+        >
+          Simpan Kategori
+        </button>
+
+      </div>
+
+
+      <!-- DAFTAR KATEGORI -->
+      <div class="category-rules-list">
+
+        <h3>Kategori yang Sudah Diatur</h3>
+
+        <div class="profit-table-wrapper">
+
+          <table class="profit-table">
+
+            <thead>
+              <tr>
+                <th>Jenis Transaksi</th>
+                <th>Kategori</th>
+                <th>Kelompok Laporan</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+
+            <tbody id="categoryRulesList">
+
+              <tr>
+                <td colspan="4" class="empty-row">
+                  Belum ada kategori yang diatur.
+                </td>
+              </tr>
+
+            </tbody>
+
+          </table>
+
+        </div>
+
+      </div>
+
+      <p id="categoryMessage" class="profit-message" hidden></p>
+
+    </section>
+
+
+    <!-- PESAN LAPORAN -->
+    <div id="reportMessage" class="profit-message" hidden></div>
+
+
+    <!-- FOOTER -->
+    <footer class="profit-footer">
+      <p>UMKM BOOK · Laporan keuangan usaha</p>
+    </footer>
+
+  </main>
+
+
+  <!-- PDF LIBRARY -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+  <!-- JAVASCRIPT LAPORAN -->
+  <script type="module" src="src/laporan.js"></script>
+
+</body>
+</html>

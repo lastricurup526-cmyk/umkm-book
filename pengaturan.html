@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#087653">
+  <title>Pengaturan | UMKM BOOK</title>
+
+  <link rel="stylesheet" href="src/dashboard.css">
+  <link rel="stylesheet" href="src/pengaturan.css">
+ 
+</head>
+
+<body>
+
+<div class="dashboard-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <button
+      type="button"
+      class="mobile-menu-close"
+      id="mobileMenuClose"
+      aria-label="Tutup menu"
+    >&times;</button>
+
+    <div class="sidebar-brand">
+      <img src="public/assets/logo.jpeg" alt="Logo UMKM BOOK">
+      <div>
+        <h2>UMKM BOOK</h2>
+        <p>BUSINESS MANAGEMENT</p>
+      </div>
+    </div>
+
+    <div class="business-card">
+      <div class="business-avatar" id="businessAvatar">U</div>
+      <div class="business-info">
+        <strong id="businessName">Usaha Saya</strong>
+        <span>Kelola bisnis Anda</span>
+      </div>
+    </div>
+
+    <nav class="sidebar-menu">
+
+      <p class="menu-label">MENU UTAMA</p>
+
+      <a href="dashboard.html" class="menu-link">
+        <span>▦</span> Dashboard
+      </a>
+       <a href="pengetahuan.html" class="menu-link">
+          <span>📚</span>
+          Pengetahuan
+        </a>
+      <a href="modal.html" class="menu-link">
+        <span>◫</span> Modal
+      </a>
+
+      <a href="transaksi.html" class="menu-link">
+        <span>⇄</span> Transaksi
+      </a>
+
+      <a href="kalkulator.html" class="menu-link">
+        <span>⌗</span> Kalkulator
+      </a>
+
+      <a href="laporan.html" class="menu-link">
+        <span>▤</span> Laporan Laba Rugi
+      </a>
+
+      <a href="profil-usaha.html" class="menu-link">
+        <span>👤</span> Profil Usaha
+      </a>
+
+      <a href="pengaturan.html" class="menu-link active">
+        <span>⚙</span> Pengaturan
+      </a>
+
+    </nav>
+
+    <div class="sidebar-logout">
+      <a href="#" class="menu-link" id="logoutButton">
+        <span class="logout-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor"
+            stroke-width="1.8" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+            <path d="M16 17l5-5-5-5"/>
+            <path d="M21 12H9"/>
+          </svg>
+        </span>
+        Keluar
+      </a>
+    </div>
+
+  </aside>
+
+  <!-- KONTEN UTAMA -->
+  <main class="main-content pengaturan-main">
+
+    <header class="dashboard-header pengaturan-header">
+
+      <div class="header-title">
+        <span class="header-eyebrow">PREFERENSI APLIKASI</span>
+        <h1>Pengaturan</h1>
+        <p>Atur akun, tampilan, dan pengelolaan aplikasi UMKM BOOK.</p>
+      </div>
+
+    <div class="header-action">
+  <a href="dashboard.html" class="pengaturan-back-button">
+    <span aria-hidden="true">←</span>
+    <span>Dashboard</span>
+  </a>
+</div>
+
+    </header>
+
+    <!-- INTRO -->
+    <section class="settings-intro">
+      <div class="settings-intro-icon">⚙</div>
+      <div>
+        <h2>Pusat Pengaturan</h2>
+        <p>
+          Sesuaikan pengalaman penggunaan UMKM BOOK
+          sesuai kebutuhan pengelolaan usaha Anda.
+        </p>
+      </div>
+    </section>
+
+    <!-- DAFTAR PENGATURAN -->
+    <section class="settings-grid">
+
+      <!-- AKUN -->
+      <article class="settings-card" id="accountSettings">
+        <div class="settings-card-icon account-icon">♙</div>
+
+        <div class="settings-card-content">
+          <span class="settings-category">AKUN</span>
+          <h2>Pengaturan Akun</h2>
+          <p>
+            Kelola informasi akun, alamat email,
+            dan kata sandi yang digunakan untuk masuk.
+          </p>
+          <button type="button" class="settings-action"
+            data-setting="account">
+            Kelola Akun <span>→</span>
+          </button>
+        </div>
+      </article>
+
+    
+      <!-- DATA -->
+      <article class="settings-card" id="dataSettings">
+        <div class="settings-card-icon data-icon">▤</div>
+
+        <div class="settings-card-content">
+          <span class="settings-category">PENGELOLAAN</span>
+          <h2>Pengelolaan Data</h2>
+          <p>
+            Lihat informasi penyimpanan dan
+            pengelolaan data usaha Anda.
+          </p>
+          <button type="button" class="settings-action"
+            data-setting="data">
+            Kelola Data <span>→</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- KEAMANAN -->
+      <article class="settings-card" id="securitySettings">
+        <div class="settings-card-icon security-icon">♢</div>
+
+        <div class="settings-card-content">
+          <span class="settings-category">PERLINDUNGAN</span>
+          <h2>Keamanan Akun</h2>
+          <p>
+            Periksa informasi keamanan dan
+            pengelolaan sesi akun Anda.
+          </p>
+          <button type="button" class="settings-action"
+            data-setting="security">
+            Pengaturan Keamanan <span>→</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- TENTANG -->
+      <article class="settings-card" id="aboutSettings">
+        <div class="settings-card-icon about-icon">ⓘ</div>
+
+        <div class="settings-card-content">
+          <span class="settings-category">INFORMASI</span>
+          <h2>Tentang UMKM BOOK</h2>
+          <p>
+            Informasi aplikasi, fungsi utama,
+            dan identitas UMKM BOOK.
+          </p>
+          <button type="button" class="settings-action"
+            data-setting="about">
+            Tentang Aplikasi <span>→</span>
+          </button>
+        </div>
+      </article>
+
+    </section>
+
+    <footer class="settings-footer">
+      <p>UMKM BOOK · Business Management</p>
+      <span>Mengelola usaha dengan lebih terarah.</span>
+    </footer>
+
+  </main>
+
+</div>
+
+<script type="module" src="src/pengaturan.js"></script>
+
+</body>
+</html>

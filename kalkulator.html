@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#087653">
+
+  <title>Kalkulator | UMKM BOOK</title>
+ 
+  <link rel="stylesheet" href="src/dashboard.css">
+  <link rel="stylesheet" href="src/kalkulator.css">
+
+</head>
+
+<body>
+
+  <main class="calculator-page">
+
+    <!-- HALAMAN UTAMA KALKULATOR -->
+    <section id="calculatorHome">
+
+      <header class="calculator-header">
+        <div>
+          <h1>Kalkulator</h1>
+          <p>Pilih kalkulator sesuai kebutuhan usahamu.</p>
+        </div>
+
+        <a href="dashboard.html" class="back-dashboard">
+          ← Kembali ke Dashboard
+        </a>
+      </header>
+
+      <div class="calculator-content">
+
+        <div class="calculator-intro">
+          <h2>Perhitungan Usaha</h2>
+          <p>
+            Bantu kelola perhitungan keuangan usaha
+            dengan lebih mudah dan praktis.
+          </p>
+        </div>
+
+        <div class="calculator-menu">
+
+          <button type="button" class="calculator-card"
+            data-calculator="uang">
+            <span class="calculator-icon">Rp</span>
+            <span class="calculator-card-info">
+              <strong>Kalkulator Uang</strong>
+              <small>Penjumlahan, pengurangan, perkalian, dan pembagian.</small>
+            </span>
+            <span class="calculator-arrow">→</span>
+          </button>
+
+          <button type="button" class="calculator-card"
+            data-calculator="diskon">
+            <span class="calculator-icon">%</span>
+            <span class="calculator-card-info">
+              <strong>Kalkulator Diskon</strong>
+              <small>Hitung potongan harga dan harga setelah diskon.</small>
+            </span>
+            <span class="calculator-arrow">→</span>
+          </button>
+
+          <button type="button" class="calculator-card"
+            data-calculator="belanja">
+            <span class="calculator-icon">🛒</span>
+            <span class="calculator-card-info">
+              <strong>Kalkulator Belanja</strong>
+              <small>Hitung jumlah barang dan total belanja.</small>
+            </span>
+            <span class="calculator-arrow">→</span>
+          </button>
+
+          <button type="button" class="calculator-card"
+            data-calculator="keuntungan">
+            <span class="calculator-icon">↗</span>
+            <span class="calculator-card-info">
+              <strong>Kalkulator Keuntungan</strong>
+              <small>Hitung modal, pendapatan, laba, dan margin.</small>
+            </span>
+            <span class="calculator-arrow">→</span>
+          </button>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- AREA KHUSUS PERHITUNGAN -->
+    <section id="calculatorWorkspace" hidden>
+
+      <header class="calculator-header">
+        <div>
+          <h1 id="calculatorTitle">Kalkulator</h1>
+          <p id="calculatorDescription"></p>
+        </div>
+
+        <button type="button" id="backCalculator"
+          class="back-dashboard">
+          ← Kembali
+        </button>
+      </header>
+
+      <div id="calculatorFormArea">
+
+        <!-- FORM KALKULATOR AKAN DIISI PADA TAHAP BERIKUTNYA -->
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <script type="module" src="src/kalkulator.js"></script>
+
+</body>
+</html>

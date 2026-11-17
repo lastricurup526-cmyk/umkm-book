@@ -1,0 +1,723 @@
+
+/* =========================================
+   UMKM BOOK — KALKULATOR
+   MAIN PAGE & CALCULATOR WORKSPACE
+========================================= */
+
+.calculator-page {
+  min-height: 100vh;
+  padding: 38px 40px;
+  background: var(--background, #f4f8f6);
+  box-sizing: border-box;
+  color: var(--text, #172d29);
+}
+
+/* HEADER */
+
+.calculator-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.calculator-header h1 {
+  margin: 0 0 7px;
+  font-size: 27px;
+  font-weight: 750;
+  color: var(--text, #172d29);
+}
+
+.calculator-header p {
+  margin: 0;
+  color: var(--muted, #8493a0);
+  font-size: 14px;
+}
+
+.back-dashboard {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 17px;
+  border: 1px solid var(--border, #e6eeea);
+  border-radius: 9px;
+  background: #fff;
+  color: var(--text, #172d29);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: .2s ease;
+  white-space: nowrap;
+}
+
+.back-dashboard:hover {
+  border-color: #087653;
+  color: #087653;
+}
+
+/* MAIN CONTENT */
+
+.calculator-content {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.calculator-intro {
+  margin-bottom: 25px;
+}
+
+.calculator-intro h2 {
+  margin: 0 0 8px;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.calculator-intro p {
+  margin: 0;
+  max-width: 650px;
+  color: var(--muted, #8493a0);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* MENU */
+
+.calculator-menu {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.calculator-card {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  width: 100%;
+  min-width: 0;
+  padding: 22px;
+  border: 1px solid var(--border, #e6eeea);
+  border-radius: 13px;
+  background: #fff;
+  color: var(--text, #172d29);
+  text-align: left;
+  font-family: inherit;
+  cursor: pointer;
+  transition: transform .2s ease, border-color .2s ease,
+    box-shadow .2s ease;
+}
+
+.calculator-card:hover {
+  transform: translateY(-3px);
+  border-color: #b7dfce;
+  box-shadow: 0 8px 22px rgba(8, 118, 83, .08);
+}
+
+.calculator-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 52px;
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: #eafaf3;
+  color: #087653;
+  font-size: 21px;
+  font-weight: 750;
+}
+
+.calculator-card-info {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.calculator-card-info strong {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.calculator-card-info small {
+  color: var(--muted, #8493a0);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.calculator-arrow {
+  color: #087653;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+/* =========================================
+   CALCULATOR WORKSPACE
+========================================= */
+
+#calculatorWorkspace {
+  width: 100%;
+}
+
+#calculatorWorkspace[hidden],
+#calculatorHome[hidden],
+.calculator-result[hidden] {
+  display: none !important;
+}
+
+#calculatorFormArea {
+  width: 100%;
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.calculator-feature {
+  padding: 28px;
+  border: 1px solid var(--border, #e6eeea);
+  border-radius: 15px;
+  background: #fff;
+  box-shadow: 0 4px 18px rgba(25, 65, 48, .035);
+}
+
+.calculator-feature-header {
+  margin-bottom: 25px;
+  padding-bottom: 19px;
+  border-bottom: 1px solid #edf1ef;
+}
+
+.calculator-feature-header h2 {
+  margin: 0 0 8px;
+  color: var(--text, #172d29);
+  font-size: 20px;
+  font-weight: 750;
+}
+
+.calculator-feature-header p {
+  margin: 0;
+  color: var(--muted, #8493a0);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* FORM */
+
+.calculator-form {
+  display: flex;
+  flex-direction: column;
+  gap: 19px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.form-group label {
+  color: #344c44;
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  min-width: 0;
+  height: 46px;
+  padding: 0 13px;
+  border: 1px solid #dfe9e4;
+  border-radius: 8px;
+  outline: none;
+  background: #fff;
+  color: #172d29;
+  font-family: inherit;
+  font-size: 14px;
+  box-sizing: border-box;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #087653;
+  box-shadow: 0 0 0 3px rgba(8, 118, 83, .08);
+}
+
+.form-group input::placeholder {
+  color: #a5b2ad;
+}
+
+/* BUTTONS */
+
+.calculator-submit,
+.calculator-add {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 11px 18px;
+  border: none;
+  border-radius: 9px;
+  background: #087653;
+  color: #fff;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 650;
+  cursor: pointer;
+  transition: background .2s ease, transform .2s ease;
+}
+
+.calculator-submit:hover,
+.calculator-add:hover {
+  background: #075e43;
+}
+
+.calculator-submit:active,
+.calculator-add:active {
+  transform: scale(.99);
+}
+
+.calculator-add {
+  background: #eafaf3;
+  color: #087653;
+  border: 1px dashed #9dcdb8;
+}
+
+.calculator-add:hover {
+  background: #dff5e9;
+  color: #075e43;
+}
+
+/* RESULT */
+
+.calculator-result {
+  margin-top: 5px;
+  padding: 22px;
+  border: 1px solid #cce8da;
+  border-radius: 11px;
+  background: #f3fbf6;
+  color: #172d29;
+}
+
+.result-label {
+  display: block;
+  margin-bottom: 15px;
+  color: #087653;
+  font-size: 12px;
+  font-weight: 750;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+
+.calculator-result > h2 {
+  margin: 0;
+  color: #087653;
+  font-size: 27px;
+  font-weight: 750;
+  overflow-wrap: anywhere;
+}
+
+.calculator-result > p {
+  margin: 9px 0 0;
+  color: #71847b;
+  font-size: 12px;
+}
+
+.result-detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 11px 0;
+  border-bottom: 1px solid #deeee5;
+  font-size: 13px;
+}
+
+.result-detail span {
+  color: #71847b;
+}
+
+.result-detail strong {
+  color: #263d34;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+.result-total {
+  margin-top: 15px;
+  padding-top: 15px;
+}
+
+.result-total > span {
+  display: block;
+  margin-bottom: 7px;
+  color: #087653;
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.result-total h2 {
+  margin: 0;
+  color: #087653;
+  font-size: 27px;
+  font-weight: 750;
+  overflow-wrap: anywhere;
+}
+
+/* =========================================
+   SHOPPING CALCULATOR
+========================================= */
+
+#daftarBarang {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.shopping-item {
+  padding: 17px;
+  border: 1px solid #e4ece7;
+  border-radius: 10px;
+  background: #fbfdfc;
+}
+
+.shopping-item-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.shopping-item-header strong {
+  color: #087653;
+  font-size: 13px;
+}
+
+.remove-item {
+  padding: 6px 11px;
+  border: 1px solid #f0d6d6;
+  border-radius: 7px;
+  background: #fff7f7;
+  color: #c34b4b;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.remove-item:hover {
+  background: #ffecec;
+}
+
+.shopping-item-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.item-subtotal {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 15px;
+  padding-top: 12px;
+  border-top: 1px solid #e8efeb;
+  color: #71847b;
+  font-size: 12px;
+}
+
+.item-subtotal strong {
+  color: #087653;
+  text-align: right;
+}
+
+.shopping-summary {
+  padding: 18px;
+  border: 1px solid #dcece3;
+  border-radius: 10px;
+  background: #f7fcf9;
+}
+
+/* =========================================
+   RESPONSIVE — TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+  .calculator-page {
+    padding: 30px 25px;
+  }
+
+  .calculator-menu {
+    gap: 14px;
+  }
+
+  .calculator-card {
+    padding: 18px;
+    gap: 13px;
+  }
+
+}
+
+/* =========================================
+   RESPONSIVE — MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .calculator-page {
+    padding: 22px 15px;
+  }
+
+  .calculator-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 25px;
+  }
+
+  .calculator-header h1 {
+    font-size: 23px;
+  }
+
+  .calculator-header p {
+    font-size: 13px;
+  }
+
+  .back-dashboard {
+    min-height: 40px;
+    padding: 9px 13px;
+    font-size: 12px;
+  }
+
+  .calculator-intro h2 {
+    font-size: 18px;
+  }
+
+  .calculator-intro p {
+    font-size: 12px;
+  }
+
+  .calculator-menu {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .calculator-card {
+    padding: 16px;
+  }
+
+  .calculator-icon {
+    flex-basis: 46px;
+    width: 46px;
+    height: 46px;
+    font-size: 19px;
+  }
+
+  .calculator-card-info strong {
+    font-size: 14px;
+  }
+
+  .calculator-card-info small {
+    font-size: 11px;
+  }
+
+  .calculator-feature {
+    padding: 19px 15px;
+  }
+
+  .calculator-feature-header h2 {
+    font-size: 18px;
+  }
+
+  .calculator-feature-header p {
+    font-size: 12px;
+  }
+
+  .calculator-form {
+    gap: 16px;
+  }
+
+  .form-group label {
+    font-size: 12px;
+  }
+
+  .form-group input,
+  .form-group select {
+    height: 44px;
+    font-size: 13px;
+  }
+
+  .calculator-submit,
+  .calculator-add {
+    min-height: 44px;
+    font-size: 13px;
+  }
+
+  .calculator-result {
+    padding: 17px;
+  }
+
+  .calculator-result > h2,
+  .result-total h2 {
+    font-size: 22px;
+  }
+
+  .result-detail {
+    font-size: 12px;
+  }
+
+  .shopping-item {
+    padding: 13px;
+  }
+
+  .shopping-item-fields {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+}
+
+/* =========================================
+   RESPONSIVE — SMALL MOBILE
+========================================= */
+
+@media (max-width: 360px) {
+
+  .calculator-page {
+    padding: 18px 11px;
+  }
+
+  .calculator-card {
+    gap: 10px;
+    padding: 13px;
+  }
+
+  .calculator-icon {
+    flex-basis: 40px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .calculator-card-info small {
+    font-size: 10px;
+  }
+
+  .calculator-feature {
+    padding: 15px 12px;
+  }
+
+}
+
+/* =========================================
+   UMKM BOOK — KALKULATOR UANG DIGITAL
+========================================= */
+
+.money-calculator {
+  width: 100%;
+  max-width: 430px;
+  margin: 25px auto;
+  padding: 24px;
+  background: #ffffff;
+  border: 1px solid #e5eee9;
+  border-radius: 22px;
+  box-shadow: 0 8px 28px rgba(0, 70, 45, 0.08);
+}
+
+.money-display {
+  min-height: 125px;
+  padding: 20px;
+  margin-bottom: 20px;
+  background: #f0f7f3;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.money-history {
+  min-height: 22px;
+  color: #7b9186;
+  font-size: 14px;
+}
+
+.money-screen {
+  width: 100%;
+  color: #164d38;
+  font-size: clamp(30px, 7vw, 42px);
+  font-weight: 700;
+  text-align: right;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.money-keypad {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 11px;
+}
+
+.money-key {
+  min-width: 0;
+  height: 65px;
+  border: none;
+  border-radius: 14px;
+  background: #f2f5f3;
+  color: #244b39;
+  font-size: 21px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.money-key:hover {
+  background: #e1eee6;
+}
+
+.money-key:active {
+  transform: scale(0.95);
+}
+
+.money-key.utility {
+  background: #dcece3;
+  color: #087653;
+}
+
+.money-key.operator {
+  background: #e5f1e9;
+  color: #087653;
+  font-size: 24px;
+}
+
+.money-key.equals {
+  background: #087653;
+  color: #ffffff;
+}
+
+.money-key.equals:hover {
+  background: #066346;
+}
+
+@media (max-width: 480px) {
+  .money-calculator {
+    padding: 16px;
+    margin: 15px auto;
+    border-radius: 18px;
+  }
+
+  .money-keypad {
+    gap: 8px;
+  }
+
+  .money-key {
+    height: 58px;
+    border-radius: 12px;
+    font-size: 19px;
+  }
+}

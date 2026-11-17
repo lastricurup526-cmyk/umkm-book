@@ -1,0 +1,565 @@
+
+/* =========================================
+   UMKM BOOK — PENGATURAN
+   CSS TERPISAH DARI DASHBOARD
+========================================= */
+
+.pengaturan-main {
+  min-width: 0;
+}
+
+.pengaturan-header {
+  margin-bottom: 28px;
+}
+
+.settings-intro {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 24px;
+  margin-bottom: 28px;
+  background: linear-gradient(110deg, #087653, #10966b);
+  border-radius: 16px;
+  color: #ffffff;
+}
+
+.settings-intro-icon {
+  width: 54px;
+  height: 54px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(255,255,255,.16);
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 14px;
+  font-size: 27px;
+}
+
+.settings-intro h2 {
+  margin: 0 0 7px;
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.settings-intro p {
+  margin: 0;
+  max-width: 650px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: rgba(255,255,255,.88);
+}
+
+.settings-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.settings-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 17px;
+  min-width: 0;
+  padding: 23px;
+  background: #ffffff;
+  border: 1px solid #e8eeeb;
+  border-radius: 15px;
+  box-shadow: 0 3px 12px rgba(20, 50, 38, .035);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.settings-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 9px 24px rgba(20, 50, 38, .075);
+}
+
+.settings-card-icon {
+  width: 47px;
+  height: 47px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 13px;
+  font-size: 23px;
+}
+
+.account-icon {
+  background: #e8f2ff;
+  color: #3976c9;
+}
+
+.appearance-icon {
+  background: #f1eaff;
+  color: #8153c7;
+}
+
+.data-icon {
+  background: #e4f6ed;
+  color: #087653;
+}
+
+.security-icon {
+  background: #fff1e5;
+  color: #d47b32;
+}
+
+.about-icon {
+  background: #e9f2f4;
+  color: #43818b;
+}
+
+.settings-card-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.settings-category {
+  display: block;
+  margin-bottom: 8px;
+  color: #087653;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.settings-card-content h2 {
+  margin: 0 0 9px;
+  color: #20352c;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.settings-card-content p {
+  min-height: 43px;
+  margin: 0 0 16px;
+  color: #78847e;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.settings-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  color: #087653;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.settings-action span {
+  font-size: 17px;
+  transition: transform .2s ease;
+}
+
+.settings-action:hover span {
+  transform: translateX(4px);
+}
+
+.settings-footer {
+  margin-top: 30px;
+  padding: 20px 0;
+  border-top: 1px solid #e8eeeb;
+  text-align: center;
+}
+
+.settings-footer p {
+  margin: 0 0 5px;
+  color: #52645a;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.settings-footer span {
+  color: #96a19a;
+  font-size: 11px;
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+  .settings-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .pengaturan-header {
+    margin-bottom: 20px;
+  }
+
+  .settings-intro {
+    gap: 13px;
+    padding: 18px;
+    border-radius: 13px;
+  }
+
+  .settings-intro-icon {
+    width: 45px;
+    height: 45px;
+    font-size: 23px;
+  }
+
+  .settings-intro h2 {
+    font-size: 16px;
+  }
+
+  .settings-intro p {
+    font-size: 11px;
+  }
+
+  .settings-grid {
+    gap: 13px;
+  }
+
+  .settings-card {
+    gap: 13px;
+    padding: 18px;
+    border-radius: 13px;
+  }
+
+  .settings-card-icon {
+    width: 41px;
+    height: 41px;
+    font-size: 20px;
+  }
+
+  .settings-card-content h2 {
+    font-size: 15px;
+  }
+
+  .settings-card-content p {
+    min-height: auto;
+    font-size: 11px;
+  }
+}
+
+/* =========================================
+   UMKM BOOK — SETTINGS PANEL
+========================================= */
+
+.settings-panel {
+    margin-top: 28px;
+    padding: 30px;
+    background: #ffffff;
+    border: 1px solid #e8eeeb;
+    border-radius: 18px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+    animation: settingsFadeIn 0.25s ease;
+}
+
+.settings-panel[hidden] {
+    display: none;
+}
+
+@keyframes settingsFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.settings-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding-bottom: 22px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #edf1ef;
+}
+
+.settings-category {
+    display: block;
+    color: #087653;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin-bottom: 7px;
+}
+
+.settings-panel-header h2 {
+    margin: 0;
+    color: #183c30;
+    font-size: 23px;
+    font-weight: 700;
+}
+
+.settings-close-button {
+    width: 38px;
+    height: 38px;
+    border: none;
+    border-radius: 10px;
+    background: #f1f5f3;
+    color: #52645b;
+    font-size: 25px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.settings-close-button:hover {
+    background: #e2eee8;
+    color: #087653;
+}
+
+.settings-panel-section {
+    max-width: 650px;
+}
+
+.settings-panel-section h3 {
+    margin: 0 0 10px;
+    color: #243d32;
+    font-size: 17px;
+}
+
+.settings-description {
+    color: #77847d;
+    font-size: 13px;
+    line-height: 1.7;
+    margin: 8px 0 20px;
+}
+
+.settings-panel-section label {
+    display: block;
+    margin: 16px 0 8px;
+    color: #40554a;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.settings-panel-section input[type="email"],
+.settings-panel-section input[type="password"] {
+    width: 100%;
+    min-height: 46px;
+    padding: 12px 14px;
+    border: 1px solid #dce6e0;
+    border-radius: 10px;
+    outline: none;
+    background: #ffffff;
+    color: #263b30;
+    font-size: 14px;
+    box-sizing: border-box;
+    transition: 0.2s;
+}
+
+.settings-panel-section input:focus {
+    border-color: #087653;
+    box-shadow: 0 0 0 3px rgba(8, 118, 83, 0.09);
+}
+
+.settings-panel-section input[readonly] {
+    background: #f5f8f6;
+    color: #718078;
+}
+
+.settings-divider {
+    height: 1px;
+    background: #edf1ef;
+    margin: 28px 0;
+}
+
+.settings-primary-button {
+    width: 100%;
+    min-height: 46px;
+    margin-top: 20px;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 10px;
+    background: #087653;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.settings-primary-button:hover {
+    background: #065e42;
+}
+
+.settings-primary-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.settings-feedback {
+    min-height: 20px;
+    font-size: 13px;
+    margin-top: 12px;
+}
+
+.settings-feedback.success {
+    color: #087653;
+}
+
+.settings-feedback.error {
+    color: #d64545;
+}
+
+/* TEMA APLIKASI */
+
+.theme-options {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin: 20px 0;
+}
+
+.theme-option {
+    display: flex !important;
+    align-items: center;
+    gap: 12px;
+    min-height: 65px;
+    margin: 0 !important;
+    padding: 15px;
+    border: 1px solid #e0e9e3;
+    border-radius: 12px;
+    background: #ffffff;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.theme-option:has(input:checked) {
+    border-color: #087653;
+    background: #f0f8f4;
+}
+
+.theme-option input {
+    accent-color: #087653;
+}
+
+/* INFORMASI PENGATURAN */
+
+.settings-info-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 16px 0;
+    border-bottom: 1px solid #edf1ef;
+    font-size: 13px;
+}
+
+.settings-info-row span {
+    color: #77847d;
+}
+
+.settings-info-row strong {
+    color: #244b38;
+    text-align: right;
+    overflow-wrap: anywhere;
+}
+
+/* TENTANG APLIKASI */
+
+.about-panel {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.about-logo {
+    display: grid;
+    place-items: center;
+    width: 65px;
+    height: 65px;
+    margin: 0 auto 15px;
+    border-radius: 18px;
+    background: #087653;
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: 800;
+}
+.about-logo-image {
+    display: block;
+    width: 75px;
+    height: 75px;
+    margin: 0 auto 15px;
+    object-fit: contain;
+    border-radius: 14px;
+}
+.about-panel .settings-info-row {
+    text-align: left;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 650px) {
+    .settings-panel {
+        padding: 20px 16px;
+        margin-top: 20px;
+        border-radius: 14px;
+    }
+
+    .settings-panel-header h2 {
+        font-size: 19px;
+    }
+
+    .theme-options {
+        grid-template-columns: 1fr;
+    }
+
+    .settings-info-row {
+        align-items: flex-start;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 380px) {
+    .settings-panel {
+        padding: 16px 12px;
+    }
+
+    .settings-panel-header h2 {
+        font-size: 17px;
+    }
+}
+
+/* =====================================
+   TOMBOL KEMBALI KE DASHBOARD
+===================================== */
+
+.pengaturan-back-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 42px;
+    padding: 0 16px;
+    border: 1px solid #dce8e1;
+    border-radius: 11px;
+    background: #ffffff;
+    color: #087653;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+}
+
+.pengaturan-back-button span:first-child {
+    font-size: 19px;
+    line-height: 1;
+}
+
+.pengaturan-back-button:hover {
+    background: #087653;
+    border-color: #087653;
+    color: #ffffff;
+}
+
+.pengaturan-back-button:focus-visible {
+    outline: 3px solid rgba(8, 118, 83, 0.2);
+    outline-offset: 3px;
+}

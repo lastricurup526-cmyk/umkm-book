@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#087653">
+  <title>Dashboard | UMKM BOOK</title>
+
+  <link rel="stylesheet" href="src/dashboard.css">
+ </head>
+
+<body>
+
+  <div class="dashboard-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      
+  <button
+  type="button"
+  class="mobile-menu-close"
+  id="mobileMenuClose"
+  aria-label="Tutup menu"
+>
+  &times;
+</button>
+      <div class="sidebar-brand">
+        <img src="public/assets/logo.jpeg" alt="Logo UMKM BOOK">
+
+        <div>
+          <h2>UMKM BOOK</h2>
+          <p>BUSINESS MANAGEMENT</p>
+        </div>
+      </div>
+
+      <div class="business-card">
+       <div class="business-avatar" id="businessAvatar">U</div>
+
+        <div class="business-info">
+          <strong id="businessName">Usaha Saya</strong>
+          <span>Kelola bisnis Anda</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-menu">
+
+        <p class="menu-label">MENU UTAMA</p>
+
+        <a href="dashboard.html" class="menu-link active">
+          <span>▦</span>
+          Dashboard
+        </a>
+
+        <a href="pengetahuan.html" class="menu-link">
+          <span>📚</span>
+          Pengetahuan
+        </a>
+
+        <a href="modal.html" class="menu-link">
+          <span>◫</span>
+          Modal
+        </a>
+
+        <a href="transaksi.html" class="menu-link">
+          <span>⇄</span>
+          Transaksi
+        </a>
+
+        <a href="stok-barang.html" class="menu-link">
+          <span>📦</span>
+          Stok Barang
+        </a>
+        
+       <a href="kalkulator.html" class="menu-link">
+          <span>⌗</span>
+          Kalkulator
+        </a>
+
+        <a href="laporan.html" class="menu-link">
+          <span>▤</span>
+          Laporan Laba Rugi
+        </a>
+
+        <a href="profil-usaha.html" class="menu-link">
+           <span>👤</span>
+           Profil Usaha
+        </a>
+
+        <a href="pengaturan.html" class="menu-link">
+          <span>⚙</span>
+          Pengaturan
+        </a>
+
+     </nav>
+     <div class="sidebar-logout">
+  <a href="#" class="menu-link" id="logoutButton">
+    <span class="logout-icon">
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+        <path d="M16 17l5-5-5-5"/>
+        <path d="M21 12H9"/>
+      </svg>
+    </span>
+    Keluar
+  </a>
+</div>
+
+    </aside>
+
+    <!-- KONTEN DASHBOARD -->
+    <main class="main-content">
+    <header class="dashboard-header">
+
+    <div class="header-main">
+
+        <button
+            type="button"
+            class="mobile-menu-button"
+            id="mobileMenuButton"
+            aria-label="Buka menu navigasi"
+            aria-expanded="false"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <strong class="topbar-page-title">Dashboard</strong>
+
+    </div>
+
+    <div class="header-action">
+
+    <a href="profil-usaha.html" class="topbar-profile">
+        <span class="topbar-avatar" id="topbarAvatar">U</span>
+        <span class="topbar-profile-text">Profil Usaha</span>
+    </a>
+
+</div>
+
+</header>
+
+<section class="dashboard-welcome">
+
+    <div class="header-title">
+        <span class="header-eyebrow">RINGKASAN USAHA</span>
+
+        <h1>Selamat Datang!</h1>
+
+        <p>
+            Berikut gambaran kondisi keuangan dan aktivitas usaha Anda.
+        </p>
+    </div>
+
+</section>
+
+      <!-- RINGKASAN KEUANGAN -->
+      <section class="summary-grid">
+
+        <article class="summary-card capital-card">
+          <div class="summary-card-top">
+            <span class="summary-icon">◈</span>
+            <span class="summary-label">Total Modal</span>
+          </div>
+
+          <h3 id="totalCapital">Rp0</h3>
+          <p>Total modal usaha tercatat</p>
+        </article>
+
+        <article class="summary-card income-card">
+          <div class="summary-card-top">
+            <span class="summary-icon">↗</span>
+            <span class="summary-label">Pemasukan</span>
+          </div>
+
+          <h3 id="totalIncome">Rp0</h3>
+          <p>Periode bulan ini</p>
+        </article>
+
+        <article class="summary-card expense-card">
+          <div class="summary-card-top">
+            <span class="summary-icon">↙</span>
+            <span class="summary-label">Pengeluaran</span>
+          </div>
+
+          <h3 id="totalExpenses">Rp0</h3>
+          <p>Periode bulan ini</p>
+        </article>
+
+        <article class="summary-card profit-card">
+          <div class="summary-card-top">
+            <span class="summary-icon">✓</span>
+            <span class="summary-label">Laba Bersih</span>
+          </div>
+
+          <h3 id="totalProfit">Rp0</h3>
+          <p>Periode bulan ini</p>
+        </article>
+
+      </section>
+
+     
+<!-- GRAFIK DAN AKTIVITAS -->
+
+<section class="dashboard-middle">
+
+  <!-- GRAFIK ARUS KEUANGAN -->
+  <article class="content-card chart-card">
+
+    <div class="card-heading">
+      <div>
+        <h2>Arus Keuangan</h2>
+        <p>Perbandingan pemasukan dan pengeluaran.</p>
+      </div>
+
+      <select id="chartPeriod" aria-label="Periode grafik">
+        <option value="week">Minggu Ini</option>
+        <option value="month" selected>Bulan Ini</option>
+        <option value="year">Tahun Ini</option>
+      </select>
+    </div>
+
+    <div class="chart-legend">
+      <span>
+        <i class="legend-income"></i>
+        Pemasukan
+      </span>
+
+      <span>
+        <i class="legend-expense"></i>
+        Pengeluaran
+      </span>
+    </div>
+
+    <div class="chart-placeholder" id="financeChart">
+      <div class="finance-chart-bars" id="financeChartBars">
+        <p class="chart-empty">Memuat grafik keuangan...</p>
+      </div>
+    </div>
+
+  </article>
+
+  <!-- TRANSAKSI TERBARU -->
+  <article class="content-card transaction-card">
+
+    <div class="card-heading">
+      <div>
+        <h2>Transaksi Terbaru</h2>
+        <p>Aktivitas transaksi usaha Anda.</p>
+      </div>
+
+      <a href="transaksi.html" class="view-all">
+        Lihat Semua →
+      </a>
+    </div>
+
+    <div class="transaction-table-wrapper">
+      <table class="transaction-table">
+        <thead>
+          <tr>
+            <th>Transaksi</th>
+            <th>Kategori</th>
+            <th>Tanggal</th>
+            <th>Jenis</th>
+            <th>Jumlah</th>
+          </tr>
+        </thead>
+
+        <tbody id="recentTransactions">
+          <tr>
+            <td colspan="5" class="transaction-empty">
+              Memuat transaksi...
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </article>
+
+</section>
+
+    </main>
+
+  </div>
+
+  <script type="module" src="src/dashboard.js"></script>
+
+</body>
+</html>

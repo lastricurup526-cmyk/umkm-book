@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#087653">
+  <title>Transaksi | UMKM BOOK</title>
+  
+  <link rel="stylesheet" href="src/dashboard.css">
+  <link rel="stylesheet" href="src/transaksi.css">
+
+</head>
+<body>
+
+  <div id="transactionApp">
+
+    <header class="transaction-header">
+  <div>
+    <h1>Transaksi</h1>
+    <p>Catat dan kelola pemasukan serta pengeluaran usaha Anda.</p>
+  </div>
+
+  <a href="dashboard.html" class="back-dashboard">
+    ← Dashboard
+  </a>
+</header>
+
+    <main class="transaction-content">
+      <section class="transaction-summary">
+
+  <div class="transaction-summary-card income-summary">
+    <span>Total Pemasukan</span>
+    <strong id="transactionIncome">Rp0</strong>
+    <p>Total pemasukan tercatat</p>
+  </div>
+
+  <div class="transaction-summary-card expense-summary">
+    <span>Total Pengeluaran</span>
+    <strong id="transactionExpenses">Rp0</strong>
+    <p>Total pengeluaran tercatat</p>
+  </div>
+
+  <div class="transaction-summary-card balance-summary">
+    <span>Selisih Transaksi</span>
+    <strong id="transactionBalance">Rp0</strong>
+    <p>Pemasukan dikurangi pengeluaran</p>
+  </div>
+
+</section>
+<section class="transaction-form-card">
+
+  <h2>Tambah Transaksi</h2>
+  <p>Masukkan catatan pemasukan atau pengeluaran usaha.</p>
+
+  <form id="transactionForm">
+
+    <div class="transaction-form-grid">
+
+      <div class="transaction-field">
+        <label for="transactionDate">Tanggal</label>
+        <input type="date" id="transactionDate" required>
+      </div>
+
+      <div class="transaction-field">
+        <label for="transactionType">Jenis Transaksi</label>
+        <select id="transactionType" required>
+          <option value="">Pilih jenis transaksi</option>
+          <option value="pemasukan">Pemasukan</option>
+          <option value="pengeluaran">Pengeluaran</option>
+        </select>
+      </div>
+
+      <div class="transaction-field">
+        <label for="transactionCategory">Kategori</label>
+        <input
+          type="text"
+          id="transactionCategory"
+          list="transactionCategoryOptions"
+          placeholder="Pilih atau ketik kategori"
+          required
+        >
+
+        <datalist id="transactionCategoryOptions"></datalist>
+      </div>
+
+      <div class="transaction-field">
+        <label for="transactionAmount">Nominal (Rp)</label>
+        <input
+          type="number"
+          id="transactionAmount"
+          placeholder="Masukkan nominal"
+          min="1"
+          step="0.01"
+          required
+        >
+      </div>
+
+     <div
+  class="transaction-field transaction-field-full"
+  id="transactionDescriptionField"
+>
+  <label for="transactionDescription">Keterangan</label>
+  
+  <textarea
+    id="transactionDescription"
+    placeholder="Tambahkan keterangan transaksi..."
+    rows="3"
+  ></textarea>
+</div>
+
+    <!-- RINCIAN BARANG TERJUAL -->
+    <section
+      class="transaction-items-section"
+      id="saleItemsSection"
+      hidden
+    >
+      <div class="transaction-items-header">
+        <div>
+          <h3>Rincian Barang Terjual</h3>
+          <p>Pilih barang dan masukkan jumlah yang terjual.</p>
+        </div>
+
+        <button
+          type="button"
+          id="addSaleItemButton"
+        >
+          + Tambah Barang
+        </button>
+      </div>
+
+      <div id="saleItemsContainer"></div>
+
+      <div class="transaction-items-total">
+        <span>Total Penjualan</span>
+        <strong id="saleItemsTotal">Rp0</strong>
+      </div>
+    </section>
+
+    <div class="transaction-form-actions">
+      <button type="submit" id="saveTransaction">
+        Simpan Transaksi
+      </button>
+
+      <button type="button" id="cancelEditTransaction" hidden>
+        Batal Edit
+      </button>
+    </div>
+
+    <p id="transactionMessage"></p>
+
+  </form>
+
+</section>
+
+      <section class="transaction-history-card">
+        <div class="transaction-history-header">
+          <div>
+            <h2>Riwayat Transaksi</h2>
+            <p>Seluruh catatan transaksi usaha Anda.</p>
+          </div>
+
+          <input
+            type="search"
+            id="searchTransaction"
+            placeholder="Cari transaksi..."
+          >
+        </div>
+
+        <div id="transactionHistory">
+          <p>Memuat data transaksi...</p>
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+
+  <script type="module" src="src/transaksi.js"></script>
+</body>
+</html>

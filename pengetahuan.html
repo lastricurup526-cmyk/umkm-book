@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#087653">
+
+    <title>Pengetahuan - UMKM BOOK</title>
+    
+    <link rel="stylesheet" href="src/dashboard.css">
+    <link rel="stylesheet" href="src/pengetahuan.css">
+    
+</head>
+
+<body>
+
+    <div class="dashboard-layout">
+
+        <!-- SIDEBAR -->
+<aside class="sidebar">
+
+    <button
+        type="button"
+        class="mobile-menu-close"
+        id="mobileMenuClose"
+        aria-label="Tutup menu"
+    >
+        &times;
+    </button>
+
+    <div class="sidebar-brand">
+        <img src="public/assets/logo.jpeg" alt="Logo UMKM BOOK">
+        <div>
+            <h2>UMKM BOOK</h2>
+            <p>BUSINESS MANAGEMENT</p>
+        </div>
+    </div>
+
+    <div class="business-card">
+        <div class="business-avatar" id="businessAvatar">U</div>
+        <div class="business-info">
+            <strong id="businessName">Usaha Saya</strong>
+            <span>Kelola bisnis Anda</span>
+        </div>
+    </div>
+
+    <nav class="sidebar-menu">
+        <p class="menu-label">MENU UTAMA</p>
+
+        <a href="dashboard.html" class="menu-link">
+            <span>▦</span>Dashboard
+        </a>
+
+        <a href="pengetahuan.html" class="menu-link active">
+            <span>📚</span>Pengetahuan
+        </a>
+
+        <a href="modal.html" class="menu-link">
+            <span>◫</span>Modal
+        </a>
+
+        <a href="transaksi.html" class="menu-link">
+            <span>⇄</span>Transaksi
+        </a>
+
+        <a href="kalkulator.html" class="menu-link">
+            <span>⌗</span>Kalkulator
+        </a>
+
+        <a href="laporan.html" class="menu-link">
+            <span>▤</span>Laporan Laba Rugi
+        </a>
+
+        <a href="profil-usaha.html" class="menu-link">
+            <span>👤</span>Profil Usaha
+        </a>
+
+        <a href="pengaturan.html" class="menu-link">
+            <span>⚙</span>Pengaturan
+        </a>
+    </nav>
+
+    <div class="sidebar-logout">
+        <a href="#" class="menu-link" id="logoutButton">
+            <span>⇥</span>Keluar
+        </a>
+    </div>
+
+</aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content pengetahuan-main">
+
+        <!-- HEADER -->
+         <header class="dashboard-header" id="knowledgePageHeader">
+
+    <div class="header-title">
+        <span class="header-eyebrow">PUSAT PEMBELAJARAN</span>
+
+        <h1>Pengetahuan</h1>
+
+        <p>
+            Perluas wawasan dan pahami pengelolaan usaha
+            melalui berbagai materi pembelajaran.
+        </p>
+    </div>
+
+ <a
+    href="dashboard.html"
+    class="knowledge-back-button"
+    aria-label="Kembali ke Dashboard"
+>
+    <span aria-hidden="true">←</span>
+    <span>Dashboard</span>
+</a>
+
+</header>
+        <!-- HERO -->
+        <section class="knowledge-hero" id="knowledgeHero">
+
+            <div class="knowledge-hero-content">
+                <span class="knowledge-label">
+                    PUSAT INFORMASI UMKM
+                </span>
+
+                <h2>
+                    Belajar dan Pahami<br>
+                    Pengelolaan Usahamu
+                </h2>
+
+                <p>
+                    Temukan berbagai pengetahuan mengenai akuntansi,
+                    perpajakan, dan pengelolaan UMKM untuk membantu
+                    mengembangkan usaha secara lebih terarah.
+                </p>
+            </div>
+
+            <div class="knowledge-hero-icon">
+                <span>▤</span>
+                <small>LEARN • UNDERSTAND • GROW</small>
+            </div>
+
+        </section>
+
+<!-- CATEGORY -->
+<section class="knowledge-category-section" id="knowledgeCategorySection">
+
+    <div class="knowledge-section-heading">
+        <div>
+            <span class="section-eyebrow">JELAJAHI MATERI</span>
+            <h2>Kategori Pengetahuan</h2>
+            <p>
+                Pilih kategori untuk menemukan materi
+                yang ingin kamu pelajari.
+            </p>
+        </div>
+    </div>
+
+    <div class="knowledge-category-grid">
+
+        <button type="button" class="knowledge-card"
+                data-category="akuntansi">
+            <div class="knowledge-card-icon accounting-icon">▤</div>
+            <div class="knowledge-card-content">
+                <span class="knowledge-card-number">01</span>
+                <h3>Akuntansi</h3>
+                <p>Pelajari dasar akuntansi, pencatatan transaksi, jurnal, dan laporan keuangan.</p>
+                <span class="knowledge-card-link">Jelajahi Materi →</span>
+            </div>
+        </button>
+
+        <button type="button" class="knowledge-card"
+                data-category="perpajakan">
+            <div class="knowledge-card-icon tax-icon">▧</div>
+            <div class="knowledge-card-content">
+                <span class="knowledge-card-number">02</span>
+                <h3>Perpajakan</h3>
+                <p>Kenali ketentuan pajak, kewajiban perpajakan, dan dasar pajak UMKM.</p>
+                <span class="knowledge-card-link">Jelajahi Materi →</span>
+            </div>
+        </button>
+
+        <button type="button" class="knowledge-card"
+                data-category="umkm">
+            <div class="knowledge-card-icon umkm-icon">◫</div>
+            <div class="knowledge-card-content">
+                <span class="knowledge-card-number">03</span>
+                <h3>Pengetahuan UMKM</h3>
+                <p>Pahami modal, omzet, keuntungan, harga jual, dan manajemen usaha.</p>
+                <span class="knowledge-card-link">Jelajahi Materi →</span>
+            </div>
+        </button>
+
+        <button type="button" class="knowledge-card"
+                data-category="panduan">
+            <div class="knowledge-card-icon guide-icon">◈</div>
+            <div class="knowledge-card-content">
+                <span class="knowledge-card-number">04</span>
+                <h3>Investasi</h3>
+                <p>Temukan tutorial pembukuan dan contoh penerapan dalam kegiatan usaha.</p>
+                <span class="knowledge-card-link">Jelajahi Materi →</span>
+            </div>
+        </button>
+
+    </div>
+</section>
+
+<!-- ISI MATERI -->
+<section id="knowledgeArticleView" hidden>
+<button
+    type="button"
+    id="backToCategoriesFromArticle"
+>
+    Kembali
+</button>
+
+    <article class="knowledge-article">
+        <span class="section-eyebrow" id="articleCategory"></span>
+        <h2 id="articleTitle"></h2>
+        <p id="articleDescription"></p>
+
+        <div id="articleContent"></div>
+    </article>
+
+</section>
+
+        <!-- FOOTER -->
+        <footer class="knowledge-footer" id="knowledgeFooter">
+            <p>
+                UMKM BOOK &copy; 2026
+                <span>•</span>
+                Pusat Pengetahuan dan Pembelajaran UMKM
+            </p>
+        </footer>
+
+    </main>
+   </div>
+   
+    <script type="module" src="src/pengetahuan.js"></script>
+
+</body>
+</html>

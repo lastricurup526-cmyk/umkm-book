@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#087653">
+  <title>Modal | UMKM BOOK</title>
+ 
+  <link rel="stylesheet" href="src/dashboard.css">
+  <link rel="stylesheet" href="src/modal.css">
+  
+</head>
+<body>
+
+  <main class="modal-page">
+
+    <header class="modal-header">
+      <div>
+        <span class="header-eyebrow">KEUANGAN USAHA</span>
+        <h1>Modal</h1>
+        <p>Catat dan kelola modal yang digunakan untuk menjalankan usaha.</p>
+      </div>
+
+      <a href="dashboard.html" class="back-dashboard">
+        ← Dashboard
+      </a>
+    </header>
+
+    <section class="modal-content">
+
+      <div class="modal-summary">
+        <span>Total Modal</span>
+        <h2 id="totalModal">Rp0</h2>
+        <p>Akumulasi modal usaha Anda</p>
+      </div>
+
+      <div class="modal-form-card">
+        <h2>Tambah Modal</h2>
+        <p>Masukkan informasi modal usaha yang diterima.</p>
+
+        <form id="modalForm">
+
+          <div class="form-group">
+            <label for="modalDate">Tanggal Modal</label>
+           <input type="date" id="modalDate" required>
+          </div>
+
+          <div class="form-group">
+            <label for="modalSource">Sumber Modal</label>
+            <input
+            type="text"
+            id="modalSource"
+            placeholder="Contoh: Modal pribadi"
+            maxlength="100"
+            required
+          >
+          </div>
+
+          <div class="form-group">
+            <label for="modalAmount">Jumlah Modal (Rp)</label>
+           <input
+            type="number"
+            id="modalAmount"
+            min="1"
+            max="9999999999999.99"
+            step="0.01"
+            placeholder="Masukkan jumlah modal"
+            required
+          >
+          </div>
+
+          <div class="form-group">
+            <label for="modalDescription">Keterangan</label>
+           <textarea
+            id="modalDescription"
+            rows="3"
+            maxlength="500"
+            placeholder="Tambahkan keterangan jika diperlukan"
+          ></textarea>
+          </div>
+
+<div class="modal-form-actions">
+  <button type="submit" id="saveModal">
+    Simpan Modal
+  </button>
+
+  <button type="button" id="cancelEditModal" hidden>
+    Batal
+  </button>
+</div>
+
+          <p id="modalMessage" role="status"></p>
+
+        </form>
+      </div>
+
+      <div class="modal-history-card">
+        <h2>Riwayat Modal</h2>
+        <p>Daftar modal yang telah dicatat.</p>
+<div class="modal-search">
+  <input
+    type="search"
+    id="searchModal"
+    placeholder="Cari berdasarkan sumber modal..."
+  >
+</div>
+        <div id="modalHistory">
+          <p>Belum ada data modal.</p>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+  
+<!-- MODAL DETAIL -->
+<div id="modalDetailOverlay" class="modal-detail-overlay" hidden>
+  <div class="modal-detail-box">
+
+    <div class="modal-detail-header">
+      <h2>Detail Modal</h2>
+
+      <button type="button" id="closeModalDetail">
+        &times;
+      </button>
+    </div>
+
+    <div id="modalDetailContent"></div>
+
+  </div>
+</div>
+
+<script type="module" src="src/modal.js"></script>
+</body>
+</html>

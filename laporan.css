@@ -1,0 +1,969 @@
+
+/* =========================================
+   UMKM BOOK — LAPORAN LABA RUGI
+========================================= */
+
+.profit-page {
+  min-height: 100vh;
+  padding: 35px 40px;
+  background: var(--background, #f5f8f6);
+  color: var(--text, #24352c);
+  box-sizing: border-box;
+}
+
+.profit-page * {
+  box-sizing: border-box;
+}
+
+/* HEADER */
+
+.profit-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.profit-back {
+  display: inline-block;
+  margin-bottom: 17px;
+  color: #087653;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.profit-header h1 {
+  margin: 0 0 8px;
+  font-size: 29px;
+  font-weight: 700;
+}
+
+.profit-header p {
+  margin: 0;
+  color: #7a8981;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.profit-header-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.profit-btn {
+  min-height: 42px;
+  padding: 0 17px;
+  border: none;
+  border-radius: 9px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.profit-btn.primary {
+  color: white;
+  background: #087653;
+}
+
+.profit-btn.primary:hover {
+  background: #066346;
+}
+
+.profit-btn.secondary {
+  color: #087653;
+  background: #e7f2ec;
+}
+
+.profit-btn.secondary:hover {
+  background: #d8eadf;
+}
+
+/* FILTER */
+
+.profit-filter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 22px 24px;
+  margin-bottom: 22px;
+  background: white;
+  border: 1px solid #e8eee9;
+  border-radius: 14px;
+}
+
+.profit-filter-title h2 {
+  margin: 0 0 5px;
+  font-size: 16px;
+}
+
+.profit-filter-title p {
+  margin: 0;
+  color: #87948c;
+  font-size: 12px;
+}
+
+.profit-filter-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.profit-filter select,
+.custom-date-filter input {
+  height: 41px;
+  padding: 0 12px;
+  border: 1px solid #dfe8e2;
+  border-radius: 8px;
+  background: white;
+  color: #344b3e;
+  outline: none;
+  font-size: 13px;
+}
+
+.profit-filter select:focus,
+.custom-date-filter input:focus {
+  border-color: #087653;
+}
+
+.custom-date-filter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.custom-date-filter span {
+  color: #87948c;
+  font-size: 12px;
+}
+
+/* SUMMARY */
+
+.profit-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.profit-summary-card {
+  min-width: 0;
+  padding: 23px;
+  background: white;
+  border: 1px solid #e8eee9;
+  border-radius: 14px;
+}
+
+.profit-summary-card span {
+  display: block;
+  margin-bottom: 14px;
+  color: #78877e;
+  font-size: 13px;
+}
+
+.profit-summary-card h3 {
+  margin: 0 0 10px;
+  font-size: clamp(19px, 2vw, 27px);
+  overflow-wrap: anywhere;
+}
+
+.profit-summary-card small {
+  color: #929d96;
+  font-size: 11px;
+}
+
+.profit-summary-card.income h3 {
+  color: #087653;
+}
+
+.profit-summary-card.expense h3 {
+  color: #d56b48;
+}
+
+.profit-summary-card.result h3 {
+  color: #087653;
+}
+
+/* REPORT CARD */
+
+.profit-report-card {
+  padding: 25px;
+  margin-bottom: 22px;
+  background: white;
+  border: 1px solid #e8eee9;
+  border-radius: 14px;
+}
+
+.profit-section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 22px;
+}
+
+.profit-section-heading h2 {
+  margin: 0 0 7px;
+  font-size: 17px;
+}
+
+.profit-section-heading p {
+  margin: 0;
+  color: #89958e;
+  font-size: 12px;
+}
+
+/* TABLE */
+
+.profit-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.profit-table {
+  width: 100%;
+  min-width: 600px;
+  border-collapse: collapse;
+}
+
+.profit-table th {
+  padding: 14px 13px;
+  background: #f3f8f5;
+  color: #52685a;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.profit-table td {
+  padding: 14px 13px;
+  border-bottom: 1px solid #edf1ee;
+  color: #45564b;
+  font-size: 13px;
+}
+
+.profit-table th:last-child,
+.profit-table td:last-child {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.profit-table tbody tr:hover:not(.empty-row) {
+  background: #fafcfb;
+}
+
+.profit-table-separator td {
+  padding-top: 22px;
+  padding-bottom: 12px;
+  color: #087653;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.profit-table tfoot td {
+  padding: 15px 13px;
+  background: #f8faf8;
+  font-weight: 600;
+}
+
+.profit-table tfoot tr:first-child td {
+  border-top: 1px solid #e6eee8;
+}
+
+.profit-table tfoot .net-profit-row td {
+  background: #eaf4ee;
+  color: #087653;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.empty-row {
+  padding: 25px !important;
+  color: #98a49d !important;
+  text-align: center !important;
+}
+
+.transaction-table {
+  min-width: 720px;
+}
+
+.transaction-type {
+  display: inline-block;
+  padding: 5px 9px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.transaction-type.income {
+  color: #087653;
+  background: #e6f4eb;
+}
+
+.transaction-type.expense {
+  color: #bd6043;
+  background: #fff0e9;
+}
+
+/* MESSAGE AND FOOTER */
+
+.profit-message {
+  padding: 14px 17px;
+  margin-bottom: 20px;
+  border-radius: 9px;
+  background: #fff0e9;
+  color: #a64f35;
+  font-size: 13px;
+}
+
+.profit-footer {
+  padding: 10px 0;
+  text-align: center;
+  color: #9aa69e;
+  font-size: 11px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  .profit-page {
+    padding: 28px 24px;
+  }
+
+  .profit-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .profit-summary {
+    gap: 12px;
+  }
+
+  .profit-summary-card {
+    padding: 18px;
+  }
+
+  .profit-filter {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 600px) {
+  .profit-page {
+    padding: 20px 14px;
+  }
+
+  .profit-header h1 {
+    font-size: 23px;
+  }
+
+  .profit-header p {
+    font-size: 12px;
+  }
+
+  .profit-header-actions {
+    width: 100%;
+  }
+
+  .profit-header-actions .profit-btn {
+    flex: 1;
+  }
+
+  .profit-filter,
+  .profit-report-card {
+    padding: 17px;
+  }
+
+  .profit-filter-controls {
+    width: 100%;
+  }
+
+  .profit-filter select {
+    width: 100%;
+  }
+
+  .custom-date-filter {
+    width: 100%;
+  }
+
+  .custom-date-filter input {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .custom-date-filter .profit-btn {
+    width: 100%;
+  }
+
+  .profit-summary {
+    grid-template-columns: 1fr;
+    gap: 11px;
+  }
+
+  .profit-summary-card {
+    padding: 17px;
+  }
+
+  .profit-summary-card span {
+    margin-bottom: 9px;
+  }
+
+  .profit-summary-card h3 {
+    font-size: 23px;
+  }
+
+  .profit-section-heading h2 {
+    font-size: 15px;
+  }
+}
+
+/* CETAK LAPORAN */
+
+@media print {
+  body {
+    background: white !important;
+  }
+
+  .profit-page {
+    padding: 0;
+    background: white;
+  }
+
+  .profit-back,
+  .profit-header-actions,
+  .profit-filter {
+    display: none !important;
+  }
+
+  .profit-report-card,
+  .profit-summary-card {
+    break-inside: avoid;
+    box-shadow: none;
+  }
+
+  .profit-table-wrapper {
+    overflow: visible;
+  }
+
+  .profit-table,
+  .transaction-table {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .profit-table th,
+  .profit-table td {
+    font-size: 10px;
+    padding: 8px;
+  }
+}
+
+/* =========================================
+   RESPONSIVE LAPORAN LABA RUGI
+   HP - TABLET - LAPTOP - DESKTOP
+========================================= */
+
+@media (max-width: 600px) {
+
+  .profit-page {
+    width: 100%;
+    min-width: 0;
+    padding: 16px 12px;
+    overflow-x: hidden;
+  }
+
+  .profit-header {
+    gap: 14px;
+    margin-bottom: 18px;
+  }
+
+  .profit-header h1 {
+    font-size: 22px;
+  }
+
+  .profit-header-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+  }
+
+  .profit-filter,
+  .profit-report-card {
+    width: 100%;
+    min-width: 0;
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+
+  .profit-summary {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .profit-summary-card {
+    padding: 15px 17px;
+  }
+
+  .profit-summary-card h3 {
+    font-size: 22px;
+  }
+
+  .profit-table-wrapper {
+    width: 100%;
+    overflow: visible;
+  }
+
+  /* Hilangkan kebutuhan geser tabel */
+
+  .profit-table,
+  .transaction-table {
+    width: 100%;
+    min-width: 0;
+    border-collapse: separate;
+    border-spacing: 0 9px;
+  }
+
+  .profit-table thead {
+    display: none;
+  }
+
+  /* Setiap baris menjadi kartu */
+
+  .profit-table tbody tr {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+    padding: 9px 12px;
+    margin-bottom: 8px;
+    background: #f8faf8;
+    border: 1px solid #edf1ee;
+    border-radius: 10px;
+  }
+
+  .profit-table tbody tr td {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    width: 100%;
+    padding: 8px 0;
+    border-bottom: 1px solid #edf1ee;
+    font-size: 12px;
+    text-align: right;
+    overflow-wrap: anywhere;
+  }
+
+  .profit-table tbody tr td:last-child {
+    border-bottom: none;
+    text-align: right;
+    white-space: normal;
+  }
+
+  /* Label rincian pemasukan */
+
+  #incomeBreakdown tr td:nth-child(1)::before {
+    content: "Kategori";
+  }
+
+  #incomeBreakdown tr td:nth-child(2)::before {
+    content: "Jumlah";
+  }
+
+  #incomeBreakdown tr td:nth-child(3)::before {
+    content: "Nominal";
+  }
+
+  /* Label rincian pengeluaran */
+
+  #expenseBreakdown tr td:nth-child(1)::before {
+    content: "Kategori";
+  }
+
+  #expenseBreakdown tr td:nth-child(2)::before {
+    content: "Jumlah";
+  }
+
+  #expenseBreakdown tr td:nth-child(3)::before {
+    content: "Nominal";
+  }
+
+  /* Label riwayat transaksi */
+
+  #transactionHistory tr td:nth-child(1)::before {
+    content: "Tanggal";
+  }
+
+  #transactionHistory tr td:nth-child(2)::before {
+    content: "Keterangan";
+  }
+
+  #transactionHistory tr td:nth-child(3)::before {
+    content: "Kategori";
+  }
+
+  #transactionHistory tr td:nth-child(4)::before {
+    content: "Jenis";
+  }
+
+  #transactionHistory tr td:nth-child(5)::before {
+    content: "Nominal";
+  }
+
+  #incomeBreakdown tr td::before,
+  #expenseBreakdown tr td::before,
+  #transactionHistory tr td::before {
+    flex: 0 0 34%;
+    color: #819087;
+    font-size: 11px;
+    font-weight: 600;
+    text-align: left;
+  }
+
+  /* Baris kosong */
+
+  .profit-table tbody tr .empty-row {
+    display: block;
+    text-align: center !important;
+  }
+
+  .profit-table tbody tr .empty-row::before {
+    content: none !important;
+  }
+
+  /* Pemisah bagian pengeluaran */
+
+  .profit-table-separator tr {
+    display: block !important;
+    padding: 0 !important;
+    border: none !important;
+    background: transparent !important;
+  }
+
+  .profit-table-separator td {
+    display: block !important;
+    padding: 12px 0 !important;
+    border: none !important;
+    text-align: left !important;
+  }
+
+  .profit-table tfoot tr {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-bottom: 7px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .profit-table tfoot td {
+    padding: 11px !important;
+    font-size: 12px;
+  }
+
+  .profit-table tfoot td:last-child {
+    text-align: right;
+  }
+
+  .profit-table tfoot tr td[colspan="2"] {
+    border-bottom: none;
+  }
+
+  .profit-table tfoot tr td:last-child {
+    border-top: none;
+  }
+
+  .profit-section-heading {
+    margin-bottom: 15px;
+  }
+
+}
+
+/* TABLET */
+
+@media (min-width: 601px) and (max-width: 900px) {
+
+  .profit-page {
+    padding: 25px 20px;
+  }
+
+  .profit-summary {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .profit-summary-card:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .profit-table {
+    min-width: 0;
+  }
+
+}
+
+/* LAPTOP DAN DESKTOP */
+
+@media (min-width: 901px) {
+
+  .profit-page {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+
+  .profit-summary {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .profit-table-wrapper {
+    overflow-x: auto;
+  }
+
+}
+
+/* =========================================
+   UMKM BOOK — PENGATURAN LABA RUGI
+========================================= */
+
+.inventory-settings,
+.category-settings {
+  margin-bottom: 24px;
+}
+
+.inventory-form,
+.category-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  align-items: end;
+}
+
+.inventory-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.inventory-field label {
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.inventory-field input,
+.inventory-field select {
+  width: 100%;
+  min-height: 46px;
+  padding: 0 13px;
+  border: 1px solid var(--border, #dce5df);
+  border-radius: 9px;
+  background: var(--surface, #ffffff);
+  color: var(--text);
+  font: inherit;
+  outline: none;
+}
+
+.inventory-field input:focus,
+.inventory-field select:focus {
+  border-color: #087653;
+  box-shadow: 0 0 0 3px rgba(8, 118, 83, 0.10);
+}
+
+.inventory-form > button,
+.category-form > button {
+  min-height: 46px;
+  width: 100%;
+}
+
+.category-form {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.category-rules-list {
+  margin-top: 28px;
+}
+
+.category-rules-list h3 {
+  margin: 0 0 16px;
+  color: var(--text);
+  font-size: 16px;
+}
+
+.category-settings .profit-table {
+  min-width: 600px;
+}
+
+#inventoryMessage,
+#categoryMessage {
+  margin-top: 14px;
+}
+
+/* TABLET */
+@media (max-width: 900px) {
+  .category-form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .inventory-form,
+  .category-form {
+    grid-template-columns: 1fr;
+  }
+
+  .inventory-field label {
+    font-size: 13px;
+  }
+
+  .category-rules-list {
+    margin-top: 22px;
+  }
+
+  .category-settings .profit-table {
+    min-width: 0;
+  }
+
+  .category-settings .profit-table thead {
+    display: none;
+  }
+
+  .category-settings .profit-table tbody tr {
+    display: block;
+    padding: 12px;
+    margin-bottom: 12px;
+    border: 1px solid var(--border, #dce5df);
+    border-radius: 10px;
+  }
+
+  .category-settings .profit-table tbody td {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 9px 0;
+    border: none;
+    text-align: right;
+    overflow-wrap: anywhere;
+  }
+
+  .category-settings .profit-table tbody td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: var(--text);
+    text-align: left;
+  }
+
+  .category-settings .profit-table tbody td.empty-row {
+    display: block;
+    text-align: center;
+  }
+}
+/* =========================================
+   PENYESUAIAN LAPORAN — LAPTOP
+========================================= */
+
+@media (min-width: 901px) {
+
+  .profit-table-separator td {
+    text-align: right;
+    padding-right: 20px;
+  }
+
+}
+/* =========================================
+   HASIL LABA / RUGI
+========================================= */
+
+/* USAHA MEMPEROLEH LABA */
+.result-positive {
+  color: #087653 !important;
+}
+
+.profit-table tr.result-positive > td {
+  background-color: #eaf7f0 !important;
+  color: #087653 !important;
+}
+
+.profit-table tr.result-positive > td strong {
+  color: #087653 !important;
+}
+
+/* USAHA MENGALAMI KERUGIAN */
+.result-negative {
+  color: #d64b4b !important;
+}
+
+.profit-table tr.result-negative > td {
+  background-color: #fff0ef !important;
+  color: #d64b4b !important;
+}
+
+.profit-table tr.result-negative > td strong {
+  color: #d64b4b !important;
+}
+
+/* HASIL IMPAS */
+.result-neutral {
+  color: #78838b !important;
+}
+
+.profit-table tr.result-neutral > td {
+  background-color: #f1f3f5 !important;
+  color: #78838b !important;
+}
+
+.profit-table tr.result-neutral > td strong {
+  color: #78838b !important;
+}
+
+/* =========================================
+   PEMBEDA SUBTOTAL LAPORAN LABA RUGI
+========================================= */
+
+/* TOTAL PENDAPATAN, HPP, DAN BEBAN */
+.profit-table .subtotal-row td {
+  background: #f1f7f3;
+  color: #294b39;
+  font-size: 13px;
+  font-weight: 700;
+  border-top: 1px solid #d8e7dc;
+  border-bottom: 1px solid #d8e7dc;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.profit-table .subtotal-row td strong {
+  font-weight: 800;
+  color: #087653;
+}
+
+/* LABA KOTOR */
+.profit-table .net-profit-row td {
+  background: #eaf4ee;
+  color: #087653;
+  font-size: 14px;
+  font-weight: 800;
+  padding-top: 17px;
+  padding-bottom: 17px;
+  border-top: 1px solid #cfe3d5;
+  border-bottom: 1px solid #cfe3d5;
+}
+
+.profit-table .net-profit-row td strong {
+  font-weight: 800;
+}
+
+/* NOMINAL TOTAL LEBIH MENONJOL */
+.profit-table .subtotal-row td:last-child,
+.profit-table .net-profit-row td:last-child {
+  font-size: 14px;
+  font-weight: 800;
+}

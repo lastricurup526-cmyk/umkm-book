@@ -1,0 +1,1315 @@
+
+/* =========================================
+   UMKM BOOK — PENGETAHUAN
+   Independent Responsive Stylesheet
+========================================= */
+
+.pengetahuan-main {
+    min-width: 0;
+    padding: 35px 38px;
+    background: #f7faf8;
+    color: #243b30;
+}
+
+/* HEADER */
+
+.pengetahuan-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 28px;
+}
+
+.pengetahuan-header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.pengetahuan-breadcrumb {
+    display: block;
+    color: #829189;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.3px;
+    margin-bottom: 9px;
+}
+
+.pengetahuan-header h1 {
+    margin: 0;
+    color: #183d2f;
+    font-size: 28px;
+    font-weight: 750;
+}
+
+.pengetahuan-header p {
+    margin: 8px 0 0;
+    color: #7c8a82;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* HERO */
+
+.knowledge-hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    min-height: 255px;
+    padding: 38px 45px;
+    overflow: hidden;
+    border-radius: 20px;
+    background: linear-gradient(120deg, #075d42 0%, #087653 58%, #15966c 100%);
+    color: #ffffff;
+    box-sizing: border-box;
+}
+
+.knowledge-hero::before,
+.knowledge-hero::after {
+    content: "";
+    position: absolute;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.knowledge-hero::before {
+    width: 310px;
+    height: 310px;
+    right: 70px;
+    top: -180px;
+}
+
+.knowledge-hero::after {
+    width: 240px;
+    height: 240px;
+    right: -80px;
+    bottom: -150px;
+}
+
+.knowledge-hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 570px;
+}
+
+.knowledge-label {
+    display: inline-block;
+    margin-bottom: 15px;
+    padding: 7px 11px;
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 6px;
+    color: #d5f4e6;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.knowledge-hero h2 {
+    margin: 0;
+    color: #ffffff;
+    font-size: clamp(25px, 3vw, 35px);
+    line-height: 1.25;
+    font-weight: 750;
+}
+
+.knowledge-hero p {
+    max-width: 520px;
+    margin: 15px 0 0;
+    color: rgba(255,255,255,0.83);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.knowledge-hero-icon {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 155px;
+    height: 155px;
+    border: 1px solid rgba(255,255,255,0.24);
+    border-radius: 28px;
+    background: rgba(255,255,255,0.10);
+    transform: rotate(5deg);
+}
+
+.knowledge-hero-icon > span {
+    font-size: 75px;
+    line-height: 1;
+    color: #ffffff;
+}
+
+.knowledge-hero-icon small {
+    margin-top: 12px;
+    color: #d6f2e5;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* CATEGORY SECTION */
+
+.knowledge-category-section {
+    margin-top: 38px;
+}
+
+.knowledge-section-heading {
+    display: block;
+    width: 100%;
+    margin: 0 0 24px;
+    padding: 0;
+    text-align: left;
+}
+
+.knowledge-section-heading .section-eyebrow {
+    display: block;
+    margin: 0 0 10px;
+    color: #087653;
+    font-size: 10px;
+    font-weight: 750;
+    line-height: 1.5;
+    letter-spacing: 1.5px;
+}
+
+.knowledge-section-heading h2 {
+    display: block;
+    margin: 0 0 9px;
+    color: #1d4031;
+    font-size: 24px;
+    font-weight: 750;
+    line-height: 1.4;
+}
+
+.knowledge-section-heading p {
+    display: block;
+    max-width: 600px;
+    margin: 0;
+    color: #839088;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+@media (max-width: 650px) {
+    .knowledge-section-heading {
+        margin-bottom: 19px;
+    }
+
+    .knowledge-section-heading h2 {
+        font-size: 20px;
+    }
+
+    .knowledge-section-heading p {
+        font-size: 12px;
+    }
+}
+
+/* CATEGORY CARDS */
+
+.knowledge-category-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.knowledge-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 19px;
+    min-width: 0;
+    min-height: 190px;
+    padding: 25px;
+    border: 1px solid #e8efea;
+    border-radius: 16px;
+    background: #ffffff;
+    color: inherit;
+    text-decoration: none;
+    box-sizing: border-box;
+    transition: transform 0.22s ease,
+                box-shadow 0.22s ease,
+                border-color 0.22s ease;
+}
+
+.knowledge-card:hover {
+    transform: translateY(-4px);
+    border-color: #b9ddcb;
+    box-shadow: 0 12px 30px rgba(17, 91, 62, 0.08);
+}
+
+.knowledge-card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 55px;
+    height: 55px;
+    border-radius: 14px;
+    font-size: 27px;
+    font-weight: 700;
+}
+
+.accounting-icon {
+    color: #087653;
+    background: #e8f5ee;
+}
+
+.tax-icon {
+    color: #b47b19;
+    background: #fff5df;
+}
+
+.umkm-icon {
+    color: #3977b5;
+    background: #eaf2fc;
+}
+
+.guide-icon {
+    color: #8461b3;
+    background: #f2edfa;
+}
+
+.knowledge-card-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.knowledge-card-number {
+    display: block;
+    margin-bottom: 8px;
+    color: #9aa79f;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.knowledge-card-content h3 {
+    margin: 0 0 9px;
+    color: #244333;
+    font-size: 17px;
+    font-weight: 750;
+}
+
+.knowledge-card-content p {
+    margin: 0;
+    color: #7e8c83;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.knowledge-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    margin-top: 19px;
+    color: #087653;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.knowledge-card-link span {
+    font-size: 17px;
+    transition: transform 0.2s;
+}
+
+.knowledge-card:hover .knowledge-card-link span {
+    transform: translateX(4px);
+}
+
+/* FOOTER */
+
+.knowledge-footer {
+    margin-top: 42px;
+    padding: 20px 0 5px;
+    border-top: 1px solid #e7eee9;
+    text-align: center;
+}
+
+.knowledge-footer p {
+    margin: 0;
+    color: #96a199;
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+.knowledge-footer span {
+    padding: 0 5px;
+    color: #087653;
+}
+
+/* RESPONSIVE TABLET */
+
+@media (max-width: 1000px) {
+    .pengetahuan-main {
+        padding: 28px 25px;
+    }
+
+    .knowledge-hero {
+        padding: 32px;
+    }
+
+    .knowledge-card {
+        padding: 20px;
+    }
+}
+
+/* RESPONSIVE MOBILE */
+
+@media (max-width: 650px) {
+    .pengetahuan-main {
+        padding: 22px 16px;
+    }
+
+    .pengetahuan-header {
+        margin-bottom: 22px;
+    }
+
+    .pengetahuan-header h1 {
+        font-size: 23px;
+    }
+
+    .pengetahuan-header p {
+        font-size: 12px;
+    }
+
+    .knowledge-hero {
+        min-height: auto;
+        padding: 28px 22px;
+        border-radius: 16px;
+    }
+
+    .knowledge-hero-icon {
+        display: none;
+    }
+
+    .knowledge-hero h2 {
+        font-size: 27px;
+    }
+
+    .knowledge-hero p {
+        font-size: 12px;
+    }
+
+    .knowledge-category-section {
+        margin-top: 30px;
+    }
+
+    .knowledge-section-heading h2 {
+        font-size: 19px;
+    }
+
+    .knowledge-category-grid {
+        grid-template-columns: 1fr;
+        gap: 13px;
+    }
+
+    .knowledge-card {
+        min-height: 160px;
+        padding: 19px;
+        gap: 15px;
+        border-radius: 14px;
+    }
+
+    .knowledge-card-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        font-size: 23px;
+    }
+
+    .knowledge-card-content h3 {
+        font-size: 16px;
+    }
+
+    .knowledge-card-content p {
+        font-size: 12px;
+    }
+
+    .knowledge-footer {
+        margin-top: 30px;
+    }
+}
+
+/* SMALL MOBILE */
+
+@media (max-width: 380px) {
+    .pengetahuan-main {
+        padding: 18px 12px;
+    }
+
+    .knowledge-hero {
+        padding: 24px 18px;
+    }
+
+    .knowledge-hero h2 {
+        font-size: 23px;
+    }
+
+    .knowledge-card {
+        padding: 16px;
+        gap: 12px;
+    }
+
+    .knowledge-card-icon {
+        width: 42px;
+        height: 42px;
+    }
+}
+
+/* =========================================
+   DAFTAR MATERI
+========================================= */
+
+#knowledgeMaterialView,
+#knowledgeArticleView {
+    margin-top: 38px;
+    min-width: 0;
+}
+
+#knowledgeMaterialView[hidden],
+#knowledgeArticleView[hidden],
+#knowledgeCategorySection[hidden] {
+    display: none !important;
+}
+
+/* TOMBOL KEMBALI */
+
+#backToCategories,
+#backToMaterials {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 25px;
+    padding: 10px 16px;
+    border: 1px solid #dce9e0;
+    border-radius: 9px;
+    background: #ffffff;
+    color: #087653;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+#backToCategories:hover,
+#backToMaterials:hover {
+    background: #eaf5ee;
+    border-color: #a8d4ba;
+}
+
+/* KARTU MATERI */
+
+#knowledgeMaterialList {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 22px;
+}
+
+.knowledge-material-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 0;
+    padding: 23px;
+    border: 1px solid #e6eee8;
+    border-radius: 15px;
+    background: #ffffff;
+    color: #244333;
+    text-align: left;
+    cursor: pointer;
+    transition: transform 0.2s ease,
+                box-shadow 0.2s ease,
+                border-color 0.2s ease;
+}
+
+.knowledge-material-card:hover {
+    transform: translateY(-3px);
+    border-color: #b9ddcb;
+    box-shadow: 0 10px 25px rgba(17, 91, 62, 0.07);
+}
+
+.knowledge-material-card > span:first-child {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    margin-bottom: 16px;
+    border-radius: 10px;
+    background: #e8f5ee;
+    color: #087653;
+    font-size: 12px;
+    font-weight: 750;
+}
+
+.knowledge-material-card h3 {
+    margin: 0 0 9px;
+    color: #244333;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.knowledge-material-card p {
+    margin: 0;
+    color: #7e8c83;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.knowledge-material-card > span:last-child {
+    margin-top: 18px;
+    color: #087653;
+    font-size: 12px;
+    font-weight: 750;
+}
+
+/* =========================================
+   HALAMAN MEMBACA MATERI
+========================================= */
+
+.knowledge-article {
+    max-width: 950px;
+    padding: 35px;
+    border: 1px solid #e7eee9;
+    border-radius: 16px;
+    background: #ffffff;
+    box-sizing: border-box;
+}
+
+.knowledge-article h2 {
+    margin: 8px 0 12px;
+    color: #183d2f;
+    font-size: 27px;
+    line-height: 1.4;
+}
+
+.knowledge-article > p {
+    margin: 0 0 28px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #edf1ee;
+    color: #829189;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+#articleContent {
+    color: #43564b;
+    font-size: 14px;
+    line-height: 1.9;
+    overflow-wrap: anywhere;
+}
+
+#articleContent h3 {
+    margin: 28px 0 12px;
+    color: #1d4935;
+    font-size: 19px;
+    line-height: 1.5;
+}
+
+#articleContent h4 {
+    margin: 22px 0 10px;
+    color: #28513d;
+    font-size: 16px;
+}
+
+#articleContent p {
+    margin: 0 0 16px;
+}
+
+#articleContent ul,
+#articleContent ol {
+    margin: 12px 0 20px;
+    padding-left: 25px;
+}
+
+#articleContent li {
+    margin-bottom: 9px;
+    padding-left: 4px;
+}
+
+#articleContent strong {
+    color: #244333;
+}
+
+#articleContent table {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    margin: 20px 0;
+    overflow-x: auto;
+    border-collapse: collapse;
+}
+
+#articleContent th,
+#articleContent td {
+    padding: 12px;
+    border: 1px solid #e1eae4;
+    text-align: left;
+}
+
+#articleContent th {
+    background: #edf6f0;
+    color: #1d4935;
+}
+
+/* =========================================
+   RESPONSIVE MATERI
+========================================= */
+
+@media (max-width: 1000px) {
+    .knowledge-article {
+        padding: 28px;
+    }
+}
+
+@media (max-width: 650px) {
+    #knowledgeMaterialView,
+    #knowledgeArticleView {
+        margin-top: 28px;
+    }
+
+    #knowledgeMaterialList {
+        grid-template-columns: 1fr;
+        gap: 13px;
+    }
+
+    .knowledge-material-card {
+        padding: 19px;
+    }
+
+    .knowledge-article {
+        padding: 22px 18px;
+        border-radius: 13px;
+    }
+
+    .knowledge-article h2 {
+        font-size: 22px;
+    }
+
+    #articleContent {
+        font-size: 13px;
+    }
+
+    #articleContent h3 {
+        font-size: 17px;
+    }
+
+    #backToCategories,
+    #backToMaterials {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 380px) {
+    .knowledge-article {
+        padding: 18px 14px;
+    }
+
+    .knowledge-article h2 {
+        font-size: 20px;
+    }
+}
+
+/* KARTU KATEGORI BERUPA BUTTON */
+
+button.knowledge-card {
+    width: 100%;
+    font-family: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+
+/* =========================================
+   PERBAIKAN TEKS BERTUMPUK DAN RESPONSIVE
+========================================= */
+
+.pengetahuan-main,
+.pengetahuan-main * {
+    box-sizing: border-box;
+}
+
+.pengetahuan-main {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: hidden;
+}
+
+.pengetahuan-main h1,
+.pengetahuan-main h2,
+.pengetahuan-main h3,
+.pengetahuan-main p,
+.pengetahuan-main span,
+.pengetahuan-main small {
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+.pengetahuan-header,
+.pengetahuan-header-left,
+.knowledge-hero,
+.knowledge-hero-content,
+.knowledge-section-heading,
+.knowledge-category-grid,
+.knowledge-card,
+.knowledge-card-content,
+#knowledgeMaterialView,
+#knowledgeArticleView,
+#knowledgeMaterialList,
+.knowledge-material-card,
+.knowledge-article,
+#articleContent {
+    min-width: 0;
+    max-width: 100%;
+}
+
+.knowledge-card,
+.knowledge-material-card {
+    height: auto;
+    white-space: normal;
+}
+
+.knowledge-card-content h3,
+.knowledge-material-card h3,
+.knowledge-article h2,
+#articleContent h3,
+#articleContent h4 {
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+
+.knowledge-card-content p,
+.knowledge-material-card p,
+.knowledge-article p,
+#articleContent p,
+#articleContent li {
+    white-space: normal;
+    line-height: 1.8;
+}
+
+#articleContent {
+    width: 100%;
+    max-width: 100%;
+}
+
+#articleContent img {
+    max-width: 100%;
+    height: auto;
+}
+
+#articleContent pre {
+    max-width: 100%;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 768px) {
+    .pengetahuan-main {
+        padding: 22px 16px;
+    }
+
+    .knowledge-hero {
+        flex-wrap: wrap;
+    }
+
+    .knowledge-category-grid,
+    #knowledgeMaterialList {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .knowledge-card {
+        width: 100%;
+    }
+
+    .knowledge-article {
+        width: 100%;
+        padding: 22px 18px;
+    }
+}
+
+@media (max-width: 420px) {
+    .pengetahuan-main {
+        padding: 18px 12px;
+    }
+
+    .knowledge-card {
+        gap: 12px;
+        padding: 15px;
+    }
+
+    .knowledge-card-content h3 {
+        font-size: 15px;
+    }
+
+    .knowledge-hero h2 {
+        font-size: 23px;
+    }
+}
+
+/* =========================================
+   SIDEBAR PENGETAHUAN — PERBAIKAN
+========================================= */
+
+/* HEADER LOGO */
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    min-width: 0;
+    padding: 0 10px 24px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #edf1ef;
+}
+
+.sidebar-logo {
+    display: grid;
+    place-items: center;
+    flex: 0 0 42px;
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: #087653;
+    color: #ffffff;
+    font-size: 23px;
+    font-weight: 800;
+}
+
+.sidebar-header .sidebar-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    min-width: 0;
+    padding: 0;
+    border: none;
+}
+
+.sidebar-header .sidebar-brand h2 {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.3;
+}
+
+.sidebar-header .sidebar-brand span {
+    color: #82918b;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+/* MENU SIDEBAR */
+.sidebar-menu {
+    width: 100%;
+}
+
+.sidebar-menu .menu-link {
+    width: 100%;
+    min-width: 0;
+}
+
+/* PROFIL USAHA */
+.sidebar-bottom {
+    margin-top: auto;
+    padding-top: 22px;
+}
+
+.business-profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    min-width: 0;
+    margin-bottom: 16px;
+}
+
+.business-profile .business-avatar {
+    flex: 0 0 49px;
+    width: 49px;
+    height: 49px;
+    overflow: hidden;
+    border-radius: 13px;
+}
+
+.business-profile .business-info {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    min-width: 0;
+}
+
+.business-profile .business-info strong {
+    display: block;
+    overflow-wrap: anywhere;
+    line-height: 1.4;
+}
+
+.business-profile .business-info span {
+    display: block;
+    line-height: 1.4;
+}
+
+/* TOMBOL KELUAR */
+.sidebar-bottom .logout-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    min-height: 42px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* RESPONSIVE */
+@media (max-width: 650px) {
+    .sidebar-header {
+        padding-right: 42px;
+    }
+
+    .sidebar-bottom {
+        margin-top: 25px;
+    }
+}
+/* =====================================
+   TOMBOL KEMBALI — PENGETAHUAN
+===================================== */
+
+.knowledge-back-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    min-height: 42px;
+    padding: 0 15px;
+
+    margin-top: 16px;
+
+    border: 1px solid #dce8e1;
+    border-radius: 11px;
+
+    background: #ffffff;
+    color: #087653;
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+
+    text-decoration: none;
+    white-space: nowrap;
+
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+}
+
+.knowledge-back-button span:first-child {
+    font-size: 19px;
+    line-height: 1;
+}
+
+.knowledge-back-button:hover {
+    background: #087653;
+    border-color: #087653;
+    color: #ffffff;
+}
+
+.knowledge-back-button:focus-visible {
+    outline: 3px solid rgba(8, 118, 83, 0.2);
+    outline-offset: 3px;
+}
+/* Memastikan elemen dengan atribut hidden tidak tampil */
+#knowledgePageHeader[hidden],
+#knowledgeHero[hidden],
+#knowledgeCategorySection[hidden],
+#knowledgeArticleView[hidden],
+#knowledgeFooter[hidden] {
+    display: none !important;
+}
+
+/* TOMBOL KEMBALI HALAMAN MATERI */
+#backToCategoriesFromArticle {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    margin: 0 0 22px;
+    padding: 7px 14px 7px 8px;
+
+    border: 1px solid transparent;
+    border-radius: 30px;
+
+    background: transparent;
+    color: #087653;
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 650;
+
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#backToCategoriesFromArticle::before {
+    content: "←";
+    display: grid;
+    place-items: center;
+
+    width: 32px;
+    height: 32px;
+
+    border-radius: 50%;
+    background: #e7f4ec;
+    color: #087653;
+
+    font-size: 19px;
+    transition: all 0.2s ease;
+}
+
+#backToCategoriesFromArticle:hover {
+    background: #edf6f0;
+    border-color: #dcece2;
+}
+
+#backToCategoriesFromArticle:hover::before {
+    background: #087653;
+    color: #ffffff;
+    transform: translateX(-2px);
+}
+
+#backToCategoriesFromArticle:focus-visible {
+    outline: 3px solid rgba(8, 118, 83, 0.2);
+    outline-offset: 3px;
+}
+
+/* =========================================
+   UMKM BOOK — DESAIN ARTIKEL MATERI
+========================================= */
+
+.knowledge-article {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+
+    padding: clamp(24px, 4vw, 48px);
+
+    background: #ffffff;
+    border: 1px solid #e7eee9;
+    border-radius: 20px;
+
+    box-shadow: 0 8px 30px rgba(26, 74, 49, 0.045);
+}
+
+/* LABEL KATEGORI */
+
+#articleCategory {
+    display: inline-flex;
+    align-items: center;
+
+    margin-bottom: 17px;
+    padding: 7px 13px;
+
+    border-radius: 30px;
+    background: #eaf5ee;
+
+    color: #087653;
+    font-size: 11px;
+    font-weight: 750;
+    letter-spacing: 0.8px;
+}
+
+/* JUDUL MATERI */
+
+.knowledge-article h2 {
+    max-width: 800px;
+    margin: 0 0 15px;
+
+    color: #183d2f;
+    font-size: clamp(25px, 3vw, 34px);
+    font-weight: 800;
+    line-height: 1.35;
+    letter-spacing: -0.7px;
+}
+
+/* DESKRIPSI MATERI */
+
+.knowledge-article > p {
+    max-width: 800px;
+    margin: 0 0 32px;
+    padding-bottom: 25px;
+
+    border-bottom: 1px solid #edf1ee;
+
+    color: #829189;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+/* ISI ARTIKEL */
+
+#articleContent {
+    max-width: 850px;
+    color: #46594d;
+    font-size: 14px;
+    line-height: 2;
+}
+
+/* SUBJUDUL */
+
+#articleContent h3 {
+    margin: 34px 0 15px;
+    padding-left: 13px;
+
+    border-left: 4px solid #087653;
+
+    color: #1d4935;
+    font-size: 20px;
+    font-weight: 750;
+    line-height: 1.5;
+}
+
+#articleContent h4 {
+    margin: 25px 0 12px;
+
+    color: #28513d;
+    font-size: 16px;
+    font-weight: 750;
+}
+
+/* PARAGRAF */
+
+#articleContent p {
+    margin: 0 0 18px;
+    color: #526258;
+    line-height: 2;
+}
+
+/* DAFTAR */
+
+#articleContent ul,
+#articleContent ol {
+    margin: 15px 0 25px;
+    padding-left: 25px;
+}
+
+#articleContent li {
+    margin-bottom: 11px;
+    padding-left: 5px;
+    line-height: 1.9;
+}
+
+#articleContent li::marker {
+    color: #087653;
+}
+
+/* TEKS TEBAL */
+
+#articleContent strong {
+    color: #244333;
+    font-weight: 750;
+}
+
+/* KUTIPAN / CATATAN */
+
+#articleContent blockquote {
+    margin: 25px 0;
+    padding: 19px 22px;
+
+    border-left: 4px solid #087653;
+    border-radius: 0 12px 12px 0;
+
+    background: #f0f7f2;
+    color: #42604d;
+}
+
+/* GARIS PEMISAH */
+
+#articleContent hr {
+    margin: 28px 0;
+    border: 0;
+    border-top: 1px solid #e8eee9;
+}
+
+/* TABEL */
+
+#articleContent table {
+    width: 100%;
+    margin: 24px 0;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#articleContent th,
+#articleContent td {
+    padding: 13px 15px;
+    border: 1px solid #e4ece6;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+#articleContent th {
+    background: #edf6f0;
+    color: #1d4935;
+    font-weight: 750;
+}
+
+#articleContent td {
+    color: #526258;
+}
+
+/* GAMBAR MATERI */
+
+#articleContent img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 22px auto;
+    border-radius: 12px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 650px) {
+    .knowledge-article {
+        padding: 24px 19px;
+        border-radius: 15px;
+    }
+
+    .knowledge-article h2 {
+        font-size: 24px;
+    }
+
+    .knowledge-article > p {
+        font-size: 13px;
+        margin-bottom: 25px;
+    }
+
+    #articleContent {
+        font-size: 13px;
+        line-height: 1.9;
+    }
+
+    #articleContent h3 {
+        font-size: 18px;
+        margin-top: 28px;
+    }
+
+    #articleContent h4 {
+        font-size: 15px;
+    }
+
+    #articleContent th,
+    #articleContent td {
+        padding: 10px;
+        font-size: 12px;
+    }
+}

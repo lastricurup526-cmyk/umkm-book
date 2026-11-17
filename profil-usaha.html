@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#087653">
+  <title>Profil Usaha | UMKM BOOK</title>
+
+  <link rel="stylesheet" href="src/dashboard.css">
+  <link rel="stylesheet" href="src/profil-usaha.css">
+ 
+</head>
+<body>
+
+  <div class="profile-page">
+
+    <header class="profile-header">
+      <div>
+        <span class="header-eyebrow">PREFERENSI</span>
+        <h1>Profil Usaha</h1>
+        <p>Kelola informasi dan identitas usaha Anda.</p>
+      </div>
+
+      <a href="dashboard.html" class="back-dashboard">
+        ← Dashboard
+      </a>
+    </header>
+
+    <main class="profile-container">
+
+      <section class="profile-card">
+
+        <div class="profile-card-heading">
+          <h2>Identitas Usaha</h2>
+          <p>Informasi dasar mengenai usaha Anda.</p>
+        </div>
+
+        <div class="business-photo-section">
+
+          <div class="business-photo" id="businessPhotoPreview">
+            <span id="photoPlaceholder">U</span>
+            <img id="businessPhoto" alt="Foto profil usaha">
+          </div>
+
+          <div class="photo-information">
+            <strong>Foto Profil Usaha</strong>
+            <p>Gunakan logo atau foto yang mewakili usaha Anda.</p>
+
+            <label for="businessPhotoInput" class="upload-photo-button">
+              Pilih Foto
+            </label>
+
+            <input
+              type="file"
+              id="businessPhotoInput"
+              accept="image/*"
+              hidden
+            >
+          </div>
+
+        </div>
+       <div class="profile-form">
+
+  <div class="form-group">
+    <label for="ownerNameInput">Nama Pemilik Usaha</label>
+    <input
+      type="text"
+      id="ownerNameInput"
+      placeholder="Masukkan nama pemilik usaha"
+    >
+  </div>
+
+  <div class="form-group">
+    <label for="businessNameInput">Nama Usaha</label>
+    <input
+      type="text"
+      id="businessNameInput"
+      placeholder="Masukkan nama usaha"
+    >
+  </div>
+              <div class="form-group">
+            <label for="businessType">Jenis Usaha</label>
+            <input
+              type="text"
+              id="businessType"
+              placeholder="Contoh: Perdagangan, Kuliner, Jasa"
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="businessDescription">Deskripsi Usaha</label>
+            <textarea
+              id="businessDescription"
+              rows="4"
+              placeholder="Ceritakan secara singkat tentang usaha Anda"
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="businessAddress">Alamat Usaha</label>
+            <textarea
+              id="businessAddress"
+              rows="3"
+              placeholder="Masukkan alamat usaha"
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="businessPhone">Nomor Telepon</label>
+            <input
+              type="tel"
+              id="businessPhone"
+              placeholder="Masukkan nomor telepon"
+            >
+          </div>
+
+          <div class="profile-actions">
+            <button type="button" id="saveBusinessProfile">
+              Simpan Profil
+            </button>
+          </div>
+
+          <p id="profileMessage" role="status"></p>
+
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <script type="module" src="src/profil-usaha.js"></script>
+
+</body>
+</html>

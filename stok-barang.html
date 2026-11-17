@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#087653">
+
+    <title>Stok Barang | UMKM BOOK</title>
+   
+    <link rel="stylesheet" href="src/dashboard.css">
+    <link rel="stylesheet" href="src/stok-barang.css">
+    
+</head>
+
+<body>
+
+<div class="dashboard-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <button
+            type="button"
+            class="mobile-menu-close"
+            id="mobileMenuClose"
+            aria-label="Tutup menu"
+        >
+            &times;
+        </button>
+
+        <div class="sidebar-brand">
+            <img src="public/assets/logo.jpeg" alt="Logo UMKM BOOK">
+
+            <div>
+                <h2>UMKM BOOK</h2>
+                <p>BUSINESS MANAGEMENT</p>
+            </div>
+        </div>
+
+        <div class="business-card">
+            <div class="business-avatar" id="businessAvatar">U</div>
+
+            <div class="business-info">
+                <strong id="businessName">Usaha Saya</strong>
+                <span>Kelola bisnis Anda</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-menu">
+
+            <p class="menu-label">MENU UTAMA</p>
+
+            <a href="dashboard.html" class="menu-link">
+                <span>▦</span>
+                Dashboard
+            </a>
+
+            <a href="pengetahuan.html" class="menu-link">
+                <span>📚</span>
+                Pengetahuan
+            </a>
+
+            <a href="modal.html" class="menu-link">
+                <span>◫</span>
+                Modal
+            </a>
+
+            <a href="transaksi.html" class="menu-link">
+                <span>⇄</span>
+                Transaksi
+            </a>
+
+            <a href="stok-barang.html" class="menu-link active">
+                <span>📦</span>
+                Stok Barang
+            </a>
+
+            <a href="kalkulator.html" class="menu-link">
+                <span>⌗</span>
+                Kalkulator
+            </a>
+
+            <a href="laporan.html" class="menu-link">
+                <span>▤</span>
+                Laporan Laba Rugi
+            </a>
+
+            <a href="profil-usaha.html" class="menu-link">
+                <span>👤</span>
+                Profil Usaha
+            </a>
+
+            <a href="pengaturan.html" class="menu-link">
+                <span>⚙</span>
+                Pengaturan
+            </a>
+
+        </nav>
+
+        <div class="sidebar-logout">
+            <a href="#" class="menu-link" id="logoutButton">
+                <span class="logout-icon">↪</span>
+                Keluar
+            </a>
+        </div>
+
+    </aside>
+
+    <!-- KONTEN UTAMA -->
+    <main class="main-content">
+
+        <!-- HEADER -->
+     <section class="dashboard-welcome">
+
+    <div class="header-title">
+
+        <span class="header-eyebrow">
+            MANAJEMEN PERSEDIAAN
+        </span>
+
+        <h1>Stok Barang</h1>
+
+        <p>
+            Kelola barang, pantau jumlah stok, dan catat
+            pergerakan barang dalam usaha Anda.
+        </p>
+
+        <a href="dashboard.html" class="stock-back-button">
+            <span aria-hidden="true">←</span>
+            <span>Dashboard</span>
+        </a>
+
+    </div>
+
+</section>
+               <!-- RINGKASAN STOK -->
+        <section class="summary-grid">
+
+            <article class="summary-card">
+                <div class="summary-card-top">
+                    <span class="summary-icon">📦</span>
+                    <span class="summary-label">Total Jenis Barang</span>
+                </div>
+
+                <h3 id="totalProductTypes">0</h3>
+                <p>Jenis barang terdaftar</p>
+            </article>
+
+            <article class="summary-card">
+                <div class="summary-card-top">
+                    <span class="summary-icon">▤</span>
+                    <span class="summary-label">Total Stok</span>
+                </div>
+
+                <h3 id="totalStock">0</h3>
+                <p>Jumlah seluruh barang</p>
+            </article>
+
+            <article class="summary-card">
+                <div class="summary-card-top">
+                    <span class="summary-icon">⚠</span>
+                    <span class="summary-label">Stok Menipis</span>
+                </div>
+
+                <h3 id="lowStockCount">0</h3>
+                <p>Barang perlu diperhatikan</p>
+            </article>
+
+            <article class="summary-card">
+                <div class="summary-card-top">
+                    <span class="summary-icon">✓</span>
+                    <span class="summary-label">Stok Tersedia</span>
+                </div>
+
+                <h3 id="availableStockCount">0</h3>
+                <p>Barang dengan stok tersedia</p>
+            </article>
+
+        </section>
+
+        <!-- DAFTAR BARANG -->
+        <section class="content-card stock-list-card">
+
+            <div class="card-heading">
+
+                <div>
+                    <h2>Daftar Barang</h2>
+                    <p>Informasi barang dan jumlah stok usaha Anda.</p>
+                </div>
+
+                <button type="button" id="addProductButton">
+                    + Tambah Barang
+                </button>
+
+            </div>
+
+            <div class="stock-toolbar">
+
+                <input
+                    type="search"
+                    id="searchProduct"
+                    placeholder="Cari nama barang..."
+                    aria-label="Cari nama barang"
+                >
+
+                <select id="stockFilter" aria-label="Filter stok">
+                    <option value="all">Semua Barang</option>
+                    <option value="available">Stok Tersedia</option>
+                    <option value="low">Stok Menipis</option>
+                    <option value="empty">Stok Habis</option>
+                </select>
+
+            </div>
+
+            <div class="stock-table-wrapper">
+
+                <table class="stock-table">
+
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Nama Barang</th>
+                            <th>Kategori</th>
+                            <th>Harga Beli</th>
+                            <th>Harga Jual</th>
+                            <th>Stok</th>
+                            <th>Status</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="stockTableBody">
+
+                        <tr>
+                            <td colspan="8" class="stock-empty">
+                                Data barang akan ditampilkan di sini.
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+<!-- MODAL TAMBAH BARANG -->
+<div class="stock-modal-overlay" id="productModal" hidden>
+
+    <div class="stock-modal">
+
+        <div class="stock-modal-header">
+            <div>
+                <h2>Tambah Barang</h2>
+                <p>Masukkan informasi barang usaha Anda.</p>
+            </div>
+
+            <button type="button" id="closeProductModal"
+                aria-label="Tutup">&times;</button>
+        </div>
+
+        <form id="productForm">
+
+            <div class="stock-form-grid">
+
+                <div class="stock-form-group">
+                    <label for="productName">Nama Barang *</label>
+                    <input type="text" id="productName"
+                        placeholder="Contoh: Buku Tulis" required>
+                </div>
+
+                <div class="stock-form-group">
+                    <label for="productCategory">Kategori</label>
+                    <input type="text" id="productCategory"
+                        placeholder="Contoh: Alat Tulis">
+                </div>
+
+                <div class="stock-form-group">
+                    <label for="productUnit">Satuan</label>
+                    <select id="productUnit">
+                        <option value="Pcs">Pcs</option>
+                        <option value="Unit">Unit</option>
+                        <option value="Kg">Kg</option>
+                        <option value="Gram">Gram</option>
+                        <option value="Liter">Liter</option>
+                        <option value="Botol">Botol</option>
+                        <option value="Dus">Dus</option>
+                        <option value="Pack">Pack</option>
+                        <option value="Meter">Meter</option>
+                    </select>
+                </div>
+
+                <div class="stock-form-group">
+                  
+<div class="stock-form-group">
+    <label for="purchasePrice">Harga Beli per Satuan (Rp) *</label>
+    <input type="number" id="purchasePrice"
+        min="0" step="1" placeholder="Contoh: 5000" required>
+    <small class="stock-form-hint">
+        Harga yang Anda bayarkan untuk membeli satu satuan barang.
+    </small>
+</div>
+
+<div class="stock-form-group">
+    <label for="sellingPrice">Harga Jual per Satuan (Rp) *</label>
+    <input type="number" id="sellingPrice"
+        min="0" step="1" placeholder="Contoh: 7000" required>
+    <small class="stock-form-hint">
+        Harga yang Anda tetapkan untuk menjual satu satuan barang.
+    </small>
+</div>
+
+<div class="stock-form-group">
+    <label for="initialStock">Stok Awal *</label>
+    <input type="number" id="initialStock"
+        min="0" step="1" placeholder="Contoh: 20" required>
+    <small class="stock-form-hint">
+        Jumlah barang yang tersedia saat pertama kali dicatat.
+    </small>
+</div>
+
+<div class="stock-form-group">
+    <label for="minimumStock">Pengingat Stok Menipis *</label>
+    <input type="number" id="minimumStock"
+        min="0" step="1" placeholder="Contoh: 5" required>
+    <small class="stock-form-hint">
+        Aplikasi akan memberi peringatan ketika stok mencapai jumlah ini atau lebih rendah.
+    </small>
+</div>
+
+</div>
+
+
+
+            <div class="stock-modal-actions">
+
+                <button type="button" id="cancelProductButton">
+                    Batal
+                </button>
+
+                <button type="submit" id="saveProductButton">
+                    Simpan Barang
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+    </main>
+
+</div>
+
+<script type="module" src="src/stok-barang.js"></script>
+
+</body>
+</html>

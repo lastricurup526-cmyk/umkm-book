@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#087653">
+  <title>Buat Akun Baru | UMKM BOOK</title>
+ 
+  <link rel="stylesheet" href="src/style.css">
+
+</head>
+<body>
+  <main class="login-container">
+    <section class="login-banner">
+      <div class="brand">
+        <img src="public/assets/logo.jpeg" alt="Logo UMKM BOOK">
+        <div>
+          <h2>UMKM-Book</h2>
+          <p>BUSINESS MANAGEMENT</p>
+        </div>
+      </div>
+
+      <div class="banner-content">
+        <span class="banner-label">MULAI KELOLA USAHA</span>
+        <h1>Bangun Usaha,<br><span>Kelola Keuangan</span><br>Lebih Mudah.</h1>
+        <p class="banner-description">
+          Mulai catat transaksi dan pantau perkembangan usaha
+          melalui UMKM BOOK.
+        </p>
+      </div>
+
+      <div class="banner-footer">
+        © 2026 UMKM BOOK. All rights reserved.
+      </div>
+    </section>
+
+    <section class="login-form-section">
+      <div class="login-form-wrapper">
+        <p class="form-label">SELAMAT DATANG</p>
+        <h1>Buat Akun Baru</h1>
+        <p class="form-description">
+          Daftarkan akun untuk mulai menggunakan UMKM BOOK.
+        </p>
+
+       
+<form id="registerForm">
+  <div class="form-group">
+    <label for="ownerName">Nama Pemilik</label>
+    <input
+      type="text"
+      id="ownerName"
+      placeholder="Masukkan nama lengkap"
+      required
+    >
+  </div>
+
+  <div class="form-group">
+    <label for="businessName">Nama Usaha</label>
+    <input
+      type="text"
+      id="businessName"
+      placeholder="Contoh: Toko Berkah"
+      required
+    >
+  </div>
+
+  <div class="form-group">
+    <label for="registerEmail">Email</label>
+    <input
+      type="email"
+      id="registerEmail"
+      placeholder="nama@email.com"
+      required
+    >
+  </div>
+
+  <div class="form-group">
+    <label for="registerPassword">Kata Sandi</label>
+    <div class="password-input">
+      <input
+        type="password"
+        id="registerPassword"
+        placeholder="Minimal 8 karakter"
+        minlength="8"
+        required
+      >
+      <button type="button" id="toggleRegisterPassword">Lihat</button>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="confirmPassword">Konfirmasi Kata Sandi</label>
+    <input
+      type="password"
+      id="confirmPassword"
+      placeholder="Ulangi kata sandi"
+      minlength="8"
+      required
+    >
+  </div>
+
+  <label class="remember">
+    <input type="checkbox" id="agreeTerms" required>
+    <span>Saya menyetujui penggunaan aplikasi UMKM-Book.</span>
+  </label>
+
+  <button type="submit" class="login-button">
+    Daftar Sekarang <span>→</span>
+  </button>
+</form>
+
+        <div class="form-divider">
+          <span></span><p>Sudah memiliki akun?</p><span></span>
+        </div>
+
+        <a href="index.html" class="register-button">Masuk ke Akun</a>
+
+        <p class="form-footer">
+          UMKM BOOK · Solusi pencatatan dan pengelolaan usaha.
+        </p>
+      </div>
+    </section>
+  </main>
+<script type="module" src="src/script.js"></script>
+</body>
+</html>
