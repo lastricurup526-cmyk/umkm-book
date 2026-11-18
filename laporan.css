@@ -25,15 +25,6 @@
   margin-bottom: 28px;
 }
 
-.profit-back {
-  display: inline-block;
-  margin-bottom: 17px;
-  color: #087653;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 600;
-}
-
 .profit-header h1 {
   margin: 0 0 8px;
   font-size: 29px;
@@ -966,4 +957,154 @@
 .profit-table .net-profit-row td:last-child {
   font-size: 14px;
   font-weight: 800;
+}
+
+/* =========================================
+   UMKM BOOK — OPTIMASI FONT LAPORAN HP
+========================================= */
+
+@media (max-width: 600px) {
+
+  /* Judul halaman */
+  .profit-header h1 {
+    font-size: 21px;
+    line-height: 1.35;
+  }
+
+  .profit-header p {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .profit-back {
+    font-size: 12px;
+  }
+
+  /* Tombol */
+  .profit-btn {
+    font-size: 12px;
+    min-height: 40px;
+  }
+
+  /* Filter laporan */
+  .profit-filter-title h2 {
+    font-size: 14px;
+  }
+
+  .profit-filter-title p {
+    font-size: 11px;
+  }
+
+  .profit-filter select,
+  .custom-date-filter input {
+    font-size: 12px;
+  }
+
+  /* Ringkasan keuangan */
+  .profit-summary-card span {
+    font-size: 12px;
+  }
+
+  .profit-summary-card h3 {
+    font-size: 20px;
+    line-height: 1.4;
+  }
+
+  .profit-summary-card small {
+    font-size: 10px;
+  }
+
+  /* Judul bagian laporan */
+  .profit-section-heading h2 {
+    font-size: 15px;
+    line-height: 1.4;
+  }
+
+  .profit-section-heading p {
+    font-size: 11px;
+  }
+
+  /* Isi tabel laporan */
+  .profit-table tbody tr td {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .profit-table tbody tr td::before {
+    font-size: 11px;
+  }
+
+  /* Total pendapatan dan pengeluaran */
+  .profit-table tfoot td {
+    font-size: 12px !important;
+    line-height: 1.5;
+  }
+
+  .profit-table tfoot .net-profit-row td,
+  .profit-table .net-profit-row td {
+    font-size: 13px !important;
+  }
+
+  /* Pesan dan footer */
+  .profit-message {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .profit-footer {
+    font-size: 10px;
+  }
+}
+/* =========================================
+   TOMBOL KEMBALI — LAPORAN LABA RUGI
+   Mengikuti desain halaman Stok Barang
+========================================= */
+
+.profit-header-title {
+    min-width: 0;
+}
+
+.profit-header-title .stock-back-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-height: 42px;
+    padding: 0 17px;
+    margin-top: 20px;
+
+    color: #087653;
+    background: #eaf4ee;
+    border: 1px solid #d6e9dc;
+    border-radius: 9px;
+
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+
+    transition: all 0.2s ease;
+}
+
+.profit-header-title .stock-back-button:hover {
+    background: #dceee3;
+    border-color: #c5dfce;
+}
+
+.profit-header-title .stock-back-button span:first-child {
+    font-size: 17px;
+    line-height: 1;
+}
+
+/* RESPONSIVE HP */
+@media (max-width: 600px) {
+    .profit-header-title {
+        width: 100%;
+    }
+
+    .profit-header-title .stock-back-button {
+        min-height: 39px;
+        padding: 0 14px;
+        margin-top: 16px;
+        font-size: 12px;
+    }
 }

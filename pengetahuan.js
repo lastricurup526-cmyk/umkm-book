@@ -4,30 +4,16 @@ const knowledgeMaterials = [
 
     {
         category: "akuntansi",
+        
         title: "Pengertian Akuntansi",
         description: "Akuntansi merupakan proses mengidentifikasi, mencatat, menggolongkan, meringkas, dan menyajikan transaksi keuangan suatu usaha untuk mengetahui kondisi keuangan serta membantu pengambilan keputusan yang tepat.",
         content: `
-            <h3>Fungsi Akuntansi</h3>
-            <ul>
-                <li>Mencatat transaksi keuangan.</li>
-                <li>Mengetahui kondisi keuangan usaha.</li>
-                <li>Membantu menghitung keuntungan dan kerugian.</li>
-                <li>Mendukung pengambilan keputusan usaha.</li>
-            </ul>
-        `
-    },
-
-    {
-        category: "akuntansi",
-        title: "Tujuan dan Manfaat Akuntansi",
-        description: "Akuntansi bertujuan menyediakan informasi keuangan yang akurat dan terstruktur agar pemilik usaha dapat memahami kondisi usahanya serta menentukan keputusan yang tepat.",
-        content: `
             <h3>Tujuan Akuntansi</h3>
-            <p>
+            <ul>
                 Tujuan utama akuntansi adalah menghasilkan informasi
                 keuangan yang dapat digunakan untuk menilai kondisi
                 dan perkembangan suatu usaha.
-            </p>
+            </ul>
 
             <h3>Manfaat Akuntansi bagi UMKM</h3>
             <ul>
@@ -45,6 +31,12 @@ const knowledgeMaterials = [
                 Dari catatan tersebut, pemilik dapat mengetahui
                 perkembangan keuangan tokonya.
             </p>
+             <h3>Kesimpulan</h3>
+            <p>
+               Akuntansi marupakan proses pengelolaan informasi keuangan yang membantu pelaku
+               UMKM mencatat transaksi, mengontrol keuangan, mengetahui keuntungan, dan 
+               mengembangkan usaha.
+            </p>
         `
     }
 
@@ -53,47 +45,39 @@ const knowledgeMaterials = [
     {
         category: "perpajakan",
         title: "Pengertian Perpajakan",
-        description: "Perpajakan merupakan segala hal yang berkaitan dengan pemungutan, pengelolaan, pembayaran, dan pelaporan pajak berdasarkan ketentuan peraturan perundang-undangan.",
+        description: "Menurut pasal 1 angka 1 UU KUP, Pajak merupakan kontribusi wajib kepada negara yang bersifat memaksa berdasarkan undang-undang, tanpa imbalan langsung, untuk keperluan negara dan kemakmuran rakyat.",
         content: `
-            <h3>1. Pengertian Pajak</h3>
-            <p>
-                Pajak adalah kontribusi wajib kepada negara yang
-                terutang oleh orang pribadi atau badan, bersifat
-                memaksa berdasarkan undang-undang, tanpa mendapatkan
-                imbalan secara langsung, dan digunakan untuk
-                keperluan negara bagi sebesar-besarnya kemakmuran rakyat.
-            </p>
-
-            <h3>2. Tujuan Perpajakan</h3>
+            <h3> Perpajakan UMKM</h3>
             <ul>
-                <li>Mendukung pembiayaan pembangunan negara.</li>
-                <li>Membiayai pelayanan publik.</li>
-                <li>Mendukung pemerataan pembangunan.</li>
-                <li>Menjaga kestabilan perekonomian.</li>
+                Perpajakan UMKM adalah kententuan pajak yang mengatur kewajiban pelaku usaha mikro, kecil, dan menengah dalam membayar pajak atas penghasilan usaha.
             </ul>
 
-            <h3>3. Hubungan Pajak dengan UMKM</h3>
+            <h3>Dasar-Dasar Hukum Perpajakan UMKM</h3>
             <p>
-                UMKM merupakan salah satu bagian dari kegiatan
-                perekonomian yang dapat memiliki kewajiban perpajakan.
-                Kewajiban tersebut bergantung pada bentuk usaha,
-                jenis penghasilan, serta ketentuan perpajakan
-                yang berlaku.
+                 <li>UU No 7 tahun 2021 (UU HPP): Mengatur perubahan ketentuan perpajakan, termasuk pajak penghasilan.</li>
+                 <li>PP No 55 Tahun 2022 : Mengatur penyesuaian ketentuan pajak penghasilan, termasuk PPH Final UMKM.</li>
+                 <li>PP No 20 Tahun 2026 : Perubahan baru atas PP No 55 Tahun 2022 mengenai ketentuan PPH Final UMKM.</li>
             </p>
 
-            <h3>4. Contoh Penerapan</h3>
+            <h3>Ketentuan Pajak UMKM</h3>
             <p>
-                Seorang pemilik usaha memiliki kegiatan penjualan
-                barang secara rutin. Pemilik usaha perlu memahami
-                ketentuan pajak yang berlaku agar dapat memenuhi
-                kewajiban perpajakannya dengan benar.
+                 <li>Tarif Pajak : PPH Final sebesar 0,5% bagi wajib pajak yang memenuhi persyaratan.</li>
+                 <li>Batas Omzet : Maksimal 4,8 Miliar per tahun.</li>
+                 <li>Bebas Pajak : Omzet sampai 500 juta pertama dalam satu tahun tidak dikenai PPH bagi pajak orang pribadi.</li>
+                 <li>Penerimaan Fasilitas : Wajib pajak orang pribadi, perseroan perorangan, dan koperasi sesai ketentuan.</li>
+                 <li>Jangka Waktu : Orang pribadi dan perseroan perorangan dapat menggunkan fasilitas selama memenuhi kriteria, sedangakan koperasi maksimal 4 tahun pajak.</li>
             </p>
 
-            <h3>5. Kesimpulan</h3>
+            <h3>Contoh Perhitungan</h3>
             <p>
-                Pemahaman perpajakan membantu pelaku UMKM mengenali
-                kewajiban pajaknya, mengelola administrasi usaha,
-                dan menjalankan kegiatan bisnis sesuai peraturan.
+               Seorang pemilik UMKM memiliki omzet Rp 700 juta setahun
+                 <li>Omzet Bebas Pajak : Rp 500 juta</li>
+                 <li>Omzet Kena Pajak : Rp 200 juta</li>
+                 <li>PPh Final : 0,5 % x Rp 200 juta = Rp 1 juta</li>
+            </p>
+            <h3>Kesimpulan</h3>
+            <p>
+               Pajak UMKM merupakan kewajiban perpajakan yang harus dipahami oleh setiap pelaku usaha. Dengan adanya tafit khusus 0,5% pemerintah memberikan kemudahan perpajakan bagi UMKM yang memenuhi persyaratan.
             </p>
         `
     }
@@ -103,35 +87,31 @@ const knowledgeMaterials = [
     {
         category: "umkm",
         title: "Pengertian UMKM",
-        description: "UMKM merupakan singkatan dari Usaha Mikro, Kecil, dan Menengah, yaitu kegiatan usaha produktif yang dijalankan oleh perorangan atau badan usaha dengan kriteria tertentu sesuai peraturan perundang-undangan.",
+        description: "UMKM ( Usaha, Mikro, Kecil, dan Menengah) adalah kegiatan usaha yang dijalakan oleh perorangan atau badan usaha untuk menghasilkan barang atau jasa serta mendukung perekonomian masyarakat.",
         content: `
-            <h3>1. Pengertian UMKM</h3>
+            <h3>Dasar Hukum</h3>
             <p>
-                Usaha Mikro, Kecil, dan Menengah (UMKM) merupakan
-                kegiatan ekonomi produktif yang memiliki peran
-                penting dalam mendukung perekonomian masyarakat
-                dan negara.
+                Berdasarkan UU No 20 Tahun 2008 tentang UMKM dan PP No 7 Tahun 2021 tentang kemudahan, pelindungan, pemberdayaan koperasi dam UMKM.
             </p>
 
-            <h3>2. Peran UMKM dalam Perekonomian</h3>
+            <h3>Kriteria UMKM</h3>
             <ul>
-                <li>Membuka lapangan pekerjaan.</li>
-                <li>Meningkatkan pendapatan masyarakat.</li>
-                <li>Mendorong pertumbuhan ekonomi daerah.</li>
-                <li>Mengembangkan produk dan kreativitas lokal.</li>
-                <li>Mendukung kegiatan ekonomi masyarakat.</li>
+                Menurut PP No 7 Tahun 2021 Pasal 35 Kriteria UMKM dibagi menjadi :
+                 <p>
+                1. Bedasarkan Modal Usaha
+                <li>Usaha Mikro : Modal maksimal Rp1 Miliar</li>
+                <li>Usaha Kecil : Modal lebih dari Rp1 Miliae - Rp5 Miliar</li>
+                <li>Usaha Menengah : Modal lebih dari Rp5 Miliar - Rp10 Miliar</li>
+                "Modal tidak termasuk tanah dan bangunan tempat usaha."
+                 </p>
+
+                2. Berdasarkan Hasil Penjualan Tahunan (Omzet)
+                <li>Usaha Mikro : Maksimal Rp2 Miliar per tahun</li>
+                <li>Usaha Kecil : Lebih dari Rp2 Miliar - Rp15 Miliar per tahun</li>
+                <li>Usaha Menengah : Lebih dari Rp15 Miliar - Rp50 Miliar per tahun</li>
             </ul>
 
-            <h3>3. Contoh Kegiatan UMKM</h3>
-            <ul>
-                <li>Usaha makanan dan minuman.</li>
-                <li>Toko kelontong dan perdagangan.</li>
-                <li>Usaha pakaian dan kerajinan.</li>
-                <li>Jasa percetakan dan fotokopi.</li>
-                <li>Usaha jasa dan layanan digital.</li>
-            </ul>
-
-            <h3>4. Pentingnya Pembukuan bagi UMKM</h3>
+            <h3>Pentingnya Pembukuan bagi UMKM</h3>
             <p>
                 Pembukuan membantu pelaku UMKM mencatat pemasukan,
                 pengeluaran, modal, persediaan, serta hasil usaha.
@@ -140,7 +120,7 @@ const knowledgeMaterials = [
                 perkembangan bisnis.
             </p>
 
-            <h3>5. Kesimpulan</h3>
+            <h3>Kesimpulan</h3>
             <p>
                 UMKM memiliki peran penting dalam perekonomian.
                 Pengelolaan usaha yang baik, termasuk pencatatan
@@ -157,7 +137,7 @@ const knowledgeMaterials = [
         title: "Pengertian Investasi",
         description: "Investasi merupakan kegiatan menanamkan sejumlah dana atau sumber daya dengan harapan memperoleh manfaat atau keuntungan pada masa mendatang.",
         content: `
-            <h3>1. Pengertian Investasi</h3>
+            <h3>Pengertian Investasi</h3>
             <p>
                 Investasi adalah kegiatan mengalokasikan uang,
                 waktu, atau sumber daya ke dalam suatu aset
@@ -165,7 +145,7 @@ const knowledgeMaterials = [
                 manfaat ekonomi pada masa mendatang.
             </p>
 
-            <h3>2. Tujuan Investasi</h3>
+            <h3>Tujuan Investasi</h3>
             <ul>
                 <li>Mengembangkan nilai aset dalam jangka waktu tertentu.</li>
                 <li>Mempersiapkan kebutuhan keuangan masa depan.</li>
@@ -173,14 +153,14 @@ const knowledgeMaterials = [
                 <li>Meningkatkan kemampuan keuangan secara berkelanjutan.</li>
             </ul>
 
-            <h3>3. Jenis-Jenis Investasi</h3>
+            <h3>Jenis-Jenis Investasi</h3>
             <ul>
                 <li><strong>Investasi riil:</strong> Investasi pada aset nyata seperti tanah, bangunan, dan peralatan usaha.</li>
                 <li><strong>Investasi keuangan:</strong> Investasi pada instrumen keuangan seperti deposito, obligasi, dan reksa dana.</li>
                 <li><strong>Investasi pengembangan usaha:</strong> Penggunaan dana untuk meningkatkan kapasitas produksi, teknologi, atau kualitas layanan.</li>
             </ul>
 
-            <h3>4. Contoh Investasi pada UMKM</h3>
+            <h3>Contoh Investasi pada UMKM</h3>
             <p>
                 Seorang pemilik usaha makanan membeli peralatan
                 produksi baru untuk meningkatkan kapasitas
@@ -189,7 +169,7 @@ const knowledgeMaterials = [
                 bagi kegiatan usaha dalam jangka panjang.
             </p>
 
-            <h3>5. Hal yang Perlu Diperhatikan</h3>
+            <h3>Hal yang Perlu Diperhatikan</h3>
             <ul>
                 <li>Menyesuaikan investasi dengan kemampuan keuangan.</li>
                 <li>Memahami potensi keuntungan dan risiko.</li>
@@ -197,7 +177,7 @@ const knowledgeMaterials = [
                 <li>Melakukan perencanaan sebelum mengalokasikan dana.</li>
             </ul>
 
-            <h3>6. Kesimpulan</h3>
+            <h3>Kesimpulan</h3>
             <p>
                 Investasi merupakan salah satu cara untuk
                 mengembangkan aset dan mendukung pertumbuhan usaha.

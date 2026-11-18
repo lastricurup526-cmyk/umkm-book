@@ -47,12 +47,13 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     const { data: products, error: productsError } = await supabase
-      .from("stock_products")
-      .select("id, product_name, unit, selling_price, current_stock")
-      .eq("owner_id", user.id)
-      .eq("business_id", saleBusinessId)
-      .order("product_name", { ascending: true });
-
+    .from("stock_products")
+    .select("id, product_name, unit, selling_price, current_stock")
+    .eq("owner_id", user.id)
+    .eq("business_id", saleBusinessId)
+    .eq("is_archived", false)
+    .gt("current_stock", 0)
+    .order("product_name", { ascending: true });
     if (productsError) {
       console.error("Gagal mengambil daftar barang:", productsError);
       saleProducts = [];
@@ -603,12 +604,19 @@ function renderHistory(entries) {
   
     if (isProductSale()) {
       try {
-        const { data: details, error } = await supabase
-          .from("transaction_items")
-          .select("product_id, quantity, unit_price")
-          .eq("transaction_id", item.id)
-          .eq("owner_id", user.id)
-          .eq("business_id", saleBusinessId);
+       const { data: details, error } = await supabase
+    .from("transaction_items")
+    .select("product_id, quantity, unit_price, business_id")
+    .eq("transaction_id", item.id)
+    .eq("owner_id", user.id);
+
+if (error) throw error;
+
+console.log("PEMERIKSAAN DETAIL PENJUALAN:", {
+    transactionId: item.id,
+    saleBusinessId: saleBusinessId,
+    details: details
+});
 
         if (error) throw error;
 
@@ -693,9 +701,15 @@ function renderHistory(entries) {
       alert("Transaksi berhasil dihapus.");
 
     } catch (error) {
-      console.error("Gagal menghapus transaksi:", error);
-      alert(error.message || "Transaksi gagal dihapus.");
-    }
+    console.error("Detail error hapus transaksi:", {
+        message: error.message,
+        details: error.details,
+        hint: error.hint,
+        code: error.code
+    });
+
+    alert(error.message || "Transaksi gagal dihapus.");
+}
   }
 
   // SIMPAN TRANSAKSI
@@ -743,11 +757,7 @@ function renderHistory(entries) {
         return;
       }
 
-      if (editingTransactionId) {
-        showMessage("Edit penjualan produk akan diaktifkan pada tahap berikutnya.");
-        return;
-      }
-    } else {
+         } else {
       if (!Number.isFinite(amount) || amount <= 0 || amount > 9999999999999.99) {
         showMessage("Nominal transaksi tidak valid.");
         return;
@@ -768,14 +778,23 @@ function renderHistory(entries) {
     try {
       let result;
 
-      if (productSale) {
-        result = await supabase.rpc("save_product_sale", {
-          p_transaction_date: transactionDate,
-          p_description: description || null,
-          p_items: saleItems,
-          p_transaction_id: null
-        });
-
+     if (productSale) {
+      console.log("PEMERIKSAAN PENJUALAN:", {
+    editingTransactionId,
+    saleItems,
+    availableProducts: saleProducts.map(product => ({
+        id: product.id,
+        name: product.product_name,
+        stock: product.current_stock
+    }))
+});
+    result = await supabase.rpc("save_product_sale", {
+        p_transaction_date: transactionDate,
+        p_description: description || null,
+        p_items: saleItems,
+        p_transaction_id: editingTransactionId || null
+    });
+    
       } else if (editingTransactionId) {
         result = await supabase
           .from("transactions")
@@ -804,10 +823,15 @@ function renderHistory(entries) {
       await loadTransactions();
 
     } catch (error) {
-      console.error("Gagal menyimpan transaksi:", error);
-      showMessage(
-        error.message || "Transaksi gagal disimpan. Silakan coba lagi."
-      );
+   console.error(
+    "DETAIL ERROR SUPABASE:",
+    JSON.stringify({
+        message: error?.message,
+        details: error?.details,
+        hint: error?.hint,
+        code: error?.code
+    }, null, 2)
+);
     } finally {
       saveButton.disabled = false;
       saveButton.textContent = editingTransactionId

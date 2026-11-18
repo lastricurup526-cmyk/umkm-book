@@ -1313,3 +1313,141 @@ button.knowledge-card {
         font-size: 12px;
     }
 }
+/* =========================================
+   UMKM BOOK — OPTIMASI FONT PENGETAHUAN
+========================================= */
+
+/* MENU KATEGORI MATERI */
+.knowledge-card-content h3 {
+    font-size: 16px;
+    line-height: 1.45;
+    font-weight: 700;
+}
+
+/* JUDUL PADA KARTU DAFTAR MATERI */
+.knowledge-material-card h3 {
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 700;
+}
+
+/* JUDUL ARTIKEL MATERI */
+.knowledge-article h2 {
+    font-size: clamp(24px, 2.5vw, 30px);
+    line-height: 1.4;
+    letter-spacing: -0.4px;
+}
+
+/* SUBJUDUL ISI ARTIKEL */
+#articleContent h3 {
+    font-size: 19px;
+    line-height: 1.5;
+}
+
+#articleContent h4 {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* RESPONSIVE HP */
+@media (max-width: 650px) {
+
+    /* Menu kategori */
+    .knowledge-card-content h3 {
+        font-size: 15px;
+        line-height: 1.45;
+    }
+
+    /* Judul daftar materi */
+    .knowledge-material-card h3 {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    /* Judul artikel */
+    .knowledge-article h2 {
+        font-size: 21px;
+        line-height: 1.4;
+        letter-spacing: -0.2px;
+    }
+
+    /* Subjudul artikel */
+    #articleContent h3 {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    #articleContent h4 {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+}
+
+/* HP LAYAR KECIL */
+@media (max-width: 380px) {
+
+    .knowledge-card-content h3 {
+        font-size: 14px;
+    }
+
+    .knowledge-material-card h3 {
+        font-size: 13px;
+    }
+
+    .knowledge-article h2 {
+        font-size: 19px;
+    }
+
+    #articleContent h3 {
+        font-size: 15px;
+    }
+}
+/* =========================================
+   PENGETAHUAN — OPTIMASI KARTU KATEGORI
+========================================= */
+
+.knowledge-card {
+    min-height: 155px !important;
+    padding: 20px 22px !important;
+    gap: 17px;
+    align-items: center;
+}
+
+.knowledge-card-icon {
+    width: 58px;
+    height: 58px;
+    font-size: 29px;
+}
+
+.knowledge-card-content h3 {
+    font-size: 18px !important;
+    margin-bottom: 8px;
+}
+
+.knowledge-card-link {
+    margin-top: 13px;
+    font-size: 13px !important;
+}
+
+/* RESPONSIVE HP */
+@media (max-width: 650px) {
+    .knowledge-card {
+        min-height: 125px !important;
+        padding: 17px !important;
+        gap: 14px;
+    }
+
+    .knowledge-card-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 25px;
+    }
+
+    .knowledge-card-content h3 {
+        font-size: 16px !important;
+    }
+
+    .knowledge-card-link {
+        margin-top: 10px;
+    }
+}

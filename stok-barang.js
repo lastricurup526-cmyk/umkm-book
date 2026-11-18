@@ -33,7 +33,6 @@ if (!business) {
 
 const businessId = business.id;
 
-
 // =====================================
 // FORMAT RUPIAH
 // =====================================
@@ -52,11 +51,12 @@ let stockProducts = [];
 
 async function loadStockProducts() {
     const { data: products, error } = await supabase
-        .from("stock_products")
-        .select("*")
-        .eq("owner_id", user.id)
-        .eq("business_id", businessId)
-        .order("created_at", { ascending: false });
+    .from("stock_products")
+    .select("*")
+    .eq("owner_id", user.id)
+    .eq("business_id", businessId)
+    .eq("is_archived", false)
+    .order("created_at", { ascending: false });
 
     if (error) {
         console.error("Gagal mengambil data stok:", error);
@@ -205,10 +205,9 @@ filteredProducts.forEach((product, index) => {
 });
 
 }
-
- // =====================================
- // FUNGSI HAPUS BARANG
- // =====================================
+// =====================================
+// FUNGSI HAPUS / ARSIP BARANG
+// =====================================
 
 const stockTableBody = document.getElementById("stockTableBody");
 
@@ -236,64 +235,54 @@ stockTableBody?.addEventListener("click", async (event) => {
     if (!confirmation) return;
 
     deleteButton.disabled = true;
-    deleteButton.textContent = "Menghapus...";
+    deleteButton.textContent = "Memproses...";
 
     try {
-        // Periksa apakah barang memiliki riwayat stok
-        const { data: movements, error: movementError } = await supabase
-            .from("stock_movements")
-            .select("id")
-            .eq("product_id", productId)
-            .eq("owner_id", user.id)
-            .limit(1);
 
-        if (movementError) {
-            console.error(movementError);
-            alert("Gagal memeriksa riwayat stok: " + movementError.message);
-            return;
-        }
+        const { data: actionResult, error } = await supabase.rpc(
+            "archive_or_delete_stock_product",
+            {
+                p_product_id: productId,
+                p_business_id: businessId
+            }
+        );
 
-        if (movements && movements.length > 0) {
+        if (error) throw error;
+
+        if (actionResult === "archived") {
+
             alert(
-                "Barang tidak dapat dihapus karena sudah memiliki riwayat stok masuk atau keluar."
+                "Barang berhasil diarsipkan. Riwayat transaksi dan stok tetap tersimpan."
             );
-            return;
+
+        } else if (actionResult === "deleted") {
+
+            alert("Barang berhasil dihapus permanen.");
+
+        } else {
+
+            throw new Error("Hasil penghapusan tidak dikenali.");
+
         }
-
-        // Hapus barang
-        const { data: deletedProduct, error: deleteError } = await supabase
-            .from("stock_products")
-            .delete()
-            .eq("id", productId)
-            .eq("owner_id", user.id)
-            .eq("business_id", businessId)
-            .select("id");
-
-        if (deleteError) {
-            console.error(deleteError);
-            alert("Barang gagal dihapus: " + deleteError.message);
-            return;
-        }
-
-        if (!deletedProduct || deletedProduct.length === 0) {
-            alert("Barang tidak berhasil dihapus. Periksa izin akses Supabase.");
-            return;
-        }
-
-        alert("Barang berhasil dihapus!");
 
         await loadStockProducts();
 
     } catch (error) {
-        console.error(error);
-        alert("Terjadi kesalahan saat menghapus barang.");
+
+        console.error("Gagal menghapus atau mengarsipkan barang:", error);
+
+        alert(
+            "Barang gagal diproses: " + error.message
+        );
 
     } finally {
+
         deleteButton.disabled = false;
         deleteButton.textContent = "Hapus";
-    }
-});
 
+    }
+
+});
 // =====================================
 // PENCARIAN DAN FILTER
 // =====================================
@@ -394,10 +383,15 @@ document.getElementById("stockTableBody")
         document.getElementById("minimumStock").value =
             product.minimum_stock ?? 0;
 
-        // Stok dikelola melalui fitur stok masuk/keluar,
-        // bukan melalui edit informasi barang.
-        document.getElementById("initialStock").disabled = true;
+        // Aktifkan kolom stok saat mengedit barang
+        document.getElementById("initialStock").disabled = false;
 
+        document.querySelector('label[for="initialStock"]').textContent =
+            "Stok Saat Ini *";
+
+        document.getElementById("initialStock")
+            .parentElement.querySelector(".stock-form-hint").textContent =
+            "Masukkan jumlah barang yang tersedia saat ini.";
         saveProductButton.textContent = "Simpan Perubahan";
 
         productModal.hidden = false;
@@ -460,23 +454,19 @@ productForm?.addEventListener("submit", async (event) => {
     try {
         let result;
 
-        if (isEditing) {
-            // PERBARUI BARANG
-            result = await supabase
-                .from("stock_products")
-                .update({
-                    product_name: productName,
-                    category: category || null,
-                    unit: unit,
-                    purchase_price: purchasePrice,
-                    selling_price: sellingPrice,
-                    minimum_stock: minimumStock,
-                    updated_at: new Date().toISOString()
-                })
-                .eq("id", editingProductId)
-                .eq("owner_id", user.id)
-                .eq("business_id", businessId)
-                .select("id");
+       if (isEditing) {
+    // PERBARUI BARANG DAN CATAT RIWAYAT PERUBAHAN STOK
+    result = await supabase.rpc("update_stock_product_with_movement", {
+        p_product_id: editingProductId,
+        p_business_id: businessId,
+        p_product_name: productName,
+        p_category: category || null,
+        p_unit: unit,
+        p_purchase_price: purchasePrice,
+        p_selling_price: sellingPrice,
+        p_current_stock: initialStock,
+        p_minimum_stock: minimumStock
+    });
 
         } else {
             // TAMBAH BARANG BARU
@@ -505,8 +495,11 @@ productForm?.addEventListener("submit", async (event) => {
             return;
         }
 
-        if (!savedProduct || savedProduct.length === 0) {
-            alert("Data tidak berhasil disimpan. Periksa izin akses Supabase.");
+        if (
+            !savedProduct ||
+            (Array.isArray(savedProduct) && savedProduct.length === 0)
+        ) {
+                    alert("Data tidak berhasil disimpan. Periksa izin akses Supabase.");
             return;
         }
 
