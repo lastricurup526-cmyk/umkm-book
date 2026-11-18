@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
           email,
           password,
           options: {
-            emailRedirectTo: "http://127.0.0.1:5500/index.html",
+            emailRedirectTo: "https://aplikasi-book-umkm.vercel.app/index.html",
             data: {
               full_name: fullName,
               business_name: businessName
